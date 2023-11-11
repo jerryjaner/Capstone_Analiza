@@ -168,4 +168,39 @@ class WorkOrderController extends Controller
             'totalCostLbc' => $totalCostLbc,
         ]);
     }
+
+
+
+
+
+    //FOR THE ADMIN
+
+    public function all_request(Request $request){
+
+
+        if ($request->filled('search')) {
+            $searchQuery = $request->input('search');
+            $AllRequest = ServiceRequest::with(['service', 'technician'])
+                ->where(function ($query) use ($searchQuery) {
+                    $query->where('req_no', 'LIKE', "%$searchQuery%")
+                        ->orWhere('account_no', 'LIKE', "%$searchQuery%")
+                        ->orWhere('status', 'LIKE', "%$searchQuery%")
+                        ->orWhere('priority', 'LIKE', "%$searchQuery%");
+                })->get();
+            $pagination = false;
+        } else {
+            $pagination = true;
+            $AllRequest = ServiceRequest::with(['service', 'technician'])
+                ->where('status', 'Inprocess')
+                ->orWhere('status', 'Completed')
+                ->orWhere('status', 'Cancelled')
+                ->paginate(5);
+        }
+        return view('pages.admin.all-request.index', [
+            'pagination' => $pagination,
+            'AllRequest' => $AllRequest,
+            // 'user_technician' => User::where('role', '2')->get(),
+        ]);
+
+    }
 }

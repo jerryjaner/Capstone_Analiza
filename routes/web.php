@@ -144,6 +144,10 @@ Route::middleware([
         Route::post('/assets/store/{id}','createAssetList')->name('assetList.store');
         Route::delete('/assets/delete/{id}','deleteAssetList')->name('assetList.delete');
         Route::get('customer/assets/{id}','assetListTech')->name('assetListTech');
+
+        //FOR THE ADMIN
+        Route::get('/all=request','all_request')->name('all_request');
+
     });
     Route::controller(AssetController::class)
     ->as('asset.')

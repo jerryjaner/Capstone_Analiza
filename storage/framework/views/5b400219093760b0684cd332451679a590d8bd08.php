@@ -37,6 +37,13 @@
             </a>
         </li>
         <li>
+            <a href="<?php echo e(route('workorder.all_request')); ?>" class="side-menu <?php echo e((!request()->routeIs('workorder.all_request'))?'bg-theme-1':'bg-blue-500'); ?>">
+                <div class="side-menu__icon"> <i data-feather="file"></i> </div>
+                <div class="side-menu__title"> All Request</div>
+
+            </a>
+        </li>
+        <li>
             <a href="<?php echo e(route('service.index')); ?>" class="side-menu <?php echo e((!request()->routeIs('service.index'))?'bg-theme-1':'bg-blue-500'); ?>">
                 <div class="side-menu__icon"> <i data-feather="tool"></i> </div>
                 <div class="side-menu__title"> Services </div>

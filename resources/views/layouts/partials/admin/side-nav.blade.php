@@ -37,6 +37,13 @@
             </a>
         </li>
         <li>
+            <a href="{{route('workorder.all_request')}}" class="side-menu {{(!request()->routeIs('workorder.all_request'))?'bg-theme-1':'bg-blue-500'}}">
+                <div class="side-menu__icon"> <i data-feather="file"></i> </div>
+                <div class="side-menu__title"> All Request</div>
+
+            </a>
+        </li>
+        <li>
             <a href="{{route('service.index')}}" class="side-menu {{(!request()->routeIs('service.index'))?'bg-theme-1':'bg-blue-500'}}">
                 <div class="side-menu__icon"> <i data-feather="tool"></i> </div>
                 <div class="side-menu__title"> Services </div>

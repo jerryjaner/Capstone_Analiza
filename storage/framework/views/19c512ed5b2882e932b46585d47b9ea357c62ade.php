@@ -99,6 +99,8 @@ Dashboard
 
 
 </div>
+<?php $__env->startPush('custom-scripts'); ?>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     function generateRandomColor() {
@@ -149,6 +151,9 @@ Dashboard
         options: options
     });
 </script>
+
+<?php $__env->stopPush(); ?>
+
 
 
 <?php $__env->stopSection(); ?>

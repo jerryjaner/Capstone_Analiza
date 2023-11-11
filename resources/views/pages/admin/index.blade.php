@@ -239,6 +239,8 @@ Dashboard
 
 
 </div>
+@push('custom-scripts')
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     function generateRandomColor() {
@@ -289,6 +291,9 @@ Dashboard
         options: options
     });
 </script>
+
+@endpush
+
 
 
 @endsection
