@@ -60,7 +60,6 @@ Dashboard
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 <div class="col-span-12 mt-8">
@@ -75,7 +74,6 @@ Dashboard
                 </div>
             </div>
         </div>
-
         <div class="col-span-6 xl:col-span-8 intro-y">
             <div class="report-box zoom-in">
                 <div class="box p-5">
@@ -87,15 +85,8 @@ Dashboard
             </div>
         </div>
     </div>
-
-
 </div>
 
-
-
-<div style="width: 80%;">
-    <canvas id="monthlyChart"></canvas>
-</div>
     {{-- <div class="intro-y overflow-auto xxxl:overflow-visible sm:mt-8">
         <table class="table table-report sm:mt-2">
             <thead>

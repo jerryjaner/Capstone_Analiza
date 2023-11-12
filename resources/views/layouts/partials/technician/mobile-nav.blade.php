@@ -6,7 +6,7 @@
         <a href="javascript:;" id="mobile-menu-toggler"> <i data-feather="bar-chart-2" class="w-8 h-8 text-white transform -rotate-90"></i> </a>
     </div>
     <ul class="border-t border-theme-24 py-5 hidden">
-        <li>
+        {{-- <li>
             <a href="" class="menu ">
                 <div class="menu__icon"> <i data-feather="home"></i> </div>
                 <div class="menu__title"> Dashboard </div>
@@ -17,7 +17,7 @@
                 <div class="menu__icon"> <i data-feather="clipboard"></i> </div>
                 <div class="menu__title"> Customers </div>
             </a>
-        </li>
+        </li> --}}
 
     </ul>
 </div>

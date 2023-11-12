@@ -57,7 +57,7 @@ Login | SRMS
 
             <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left" style="display: flex; justify-content: space-between;">
                 <a href="{{route('login')}}" class="button button--lg w-32 text-white bg-theme-9 xl:mr-3">Login</a>
-                <button type="submit" class="button button--lg w-32 text-white bg-theme-1 xl:mr-3">Submit Search</button>
+                <button type="submit" class="button button--lg w-32 text-white bg-theme-1 xl:mr-3">Submit</button>
 
             </div>
 

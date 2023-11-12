@@ -121,7 +121,7 @@ Login | SRMS
             <h1 class="intro-x font-bold text-2xl text-center xl:text-left mt-5">POLICIES, PRACTICES, STANDARDS, GUIDELINES AND PROCEDURES ON CREATING AN ACCOUNT IN WEB-BASED SERVICE REQUEST MANAGEMENT SYSTEM</h1>
 
             <h3 class="intro-x font-bold text-lg xl:text-left mt-5">POLICY:</h3>
-            <p  class="text-justify intro-x">User must age at least 18 years old above, and user must use their active email and phone numbers to receive an OTP code for verification account.</p>
+            <p  class="text-justify intro-x">User must age at least 18 years old above, and user must use their active email and phone numbers to receive an email or sms for the verification account.</p>
 
             <h3 class="intro-x font-bold text-lg xl:text-left mt-5"> STANDARDS:</h3>
             <ul class="intro-x">
