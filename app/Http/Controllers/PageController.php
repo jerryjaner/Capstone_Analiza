@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\{User,PersonalInfo,ServiceRequest};
 use Auth;
+use Carbon\Carbon;
 class PageController extends Controller
 {
     public function index(Request $request){
@@ -42,6 +43,7 @@ class PageController extends Controller
 
 
             $monthlyRequests = ServiceRequest::selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, COUNT(*) as total')
+                                        ->whereYear('created_at', Carbon::now()->year)
                                         ->groupBy('month')
                                         ->orderBy('month')
                                         ->get();

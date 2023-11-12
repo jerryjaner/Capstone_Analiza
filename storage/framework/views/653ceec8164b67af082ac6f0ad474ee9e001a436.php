@@ -1,11 +1,10 @@
-@extends('layouts.guest')
-@section('title')
+<?php $__env->startSection('title'); ?>
 Register | SRMS
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 
-<form method="POST" action="{{ route('register_signup') }}">
-    @csrf
+<form method="POST" action="<?php echo e(route('register_signup')); ?>">
+    <?php echo csrf_field(); ?>
     <div class="h-screen xl:h-auto flex py-5 xl:py-0 my-10 xl:my-0">
         <div class="my-auto mx-auto xl:ml-20 bg-white xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-2/4 xl:w-auto">
             <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">
@@ -15,70 +14,52 @@ Register | SRMS
 
 
             <div class="flex">
-                {{-- <x-validation-errors class="intro-x mt-4 mx-auto" /> --}}
-                @if (session('message'))
+                
+                <?php if(session('message')): ?>
                     <div class="mb-4 font-medium text-lg text-green-700">
-                        {{ session('message') }}
+                        <?php echo e(session('message')); ?>
+
                     </div>
-                @endif
+                <?php endif; ?>
             </div>
 
             <div class="flex">
-                <x-validation-errors class="intro-x mt-4 mx-auto" />
-                @if (session('status'))
+                <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.validation-errors','data' => ['class' => 'intro-x mt-4 mx-auto']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('validation-errors'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['class' => 'intro-x mt-4 mx-auto']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+                <?php if(session('status')): ?>
                     <div class="mb-4 font-medium text-sm text-green-600">
-                        {{ session('status') }}
+                        <?php echo e(session('status')); ?>
+
                     </div>
-                @endif
+                <?php endif; ?>
             </div>
 
             <div class="intro-x mt-8">
-                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block" pattern="[0-9]{3}-{1}[0-9]{2}-[0-9]{5}" minlength="12" maxlength="12" placeholder="Account No. EX: 012-34-56789" name="account_no" value="{{old('account_no')}}" autocomplete="account_no" autofocus>
-                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Name" name="name" value="{{old('name')}}" autocomplete="name" autofocus>
-                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Email" name="email" value="{{old('email')}}" autocomplete="email" autofocus>
-                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" pattern="[0-9]{11}" minlength="11" maxlength="11" placeholder="Phone Number" name="cp" value="{{old('cp')}}" autocomplete="cp" autofocus>
-                {{-- <select id="address" class="intro-x login__input input input--lg border border-gray-300 block mt-4" name="address">
-                    <option selected disabled>Choose a Location</option>
-                    <option value="A. Bonifacio">A. Bonifacio</option>
-                    <option value="Abad Santos">Abad Santos</option>
-                    <option value="Aguinaldo">Aguinaldo</option>
-                    <option value="Antipolo">Antipolo</option>
-                    <option value="Beguin">Beguin</option>
-                    <option value="Benigno S. Aquino">Benigno S. Aquino</option>
-                    <option value="Bical">Bical</option>
-                    <option value="Bonga">Bonga</option>
-                    <option value="Butag">Butag</option>
-                    <option value="Cadandanan">Cadandanan</option>
-                    <option value="Calomagon">Calomagon</option>
-                    <option value="Calpi">Calpi</option>
-                    <option value="Cocok-Cabitan">Cocok-Cabitan</option>
-                    <option value="Daganas">Daganas</option>
-                    <option value="Danao">Danao</option>
-                    <option value="Dolos">Dolos</option>
-                    <option value="E. Quirino">E. Quirino</option>
-                    <option value="Fabrica">Fabrica</option>
-                    <option value="G. del Pilar">G. del Pilar</option>
-                    <option value="Gate">Gate</option>
-                    <option value="Inararan">Inararan</option>
-                    <option value="J. Gerona">J. Gerona</option>
-                    <option value="J. P. Laurel">J. P. Laurel</option>
-                    <option value="Jamorawon">Jamorawon</option>
-                    <option value="Lajong">Lajong</option>
-                    <option value="Libertad">Libertad</option>
-                    <option value="M. Roxas">M. Roxas</option>
-                    <option value="Magsaysay">Magsaysay</option>
-                    <option value="Managanaga">Managanaga</option>
-                    <option value="Marinab">Marinab</option>
-                    <option value="Montecalvario">Montecalvario</option>
-                    <option value="N. Roque">N. Roque</option>
-                </select> --}}
-                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="House / Block / Lot" name="house_block_lot" value="{{old('house_block_lot')}}" autocomplete="house_block_lot" autofocus>
-                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Street" name="street" value="{{old('street')}}" autocomplete="street" autofocus>
-                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Subdivision / Village" name="subdivision" value="{{old('subdivision')}}" autocomplete="subdivision" autofocus>
-                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Barangay" name="barangay" value="{{old('barangay')}}" autocomplete="barangay" autofocus>
-                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Municipality" name="municipality" value="{{old('municipality')}}" autocomplete="municipality" autofocus>
-                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Province" name="province" value="{{old('province')}}" autocomplete="province" autofocus>
-                <textarea  class="input w-full mt-2 flex-1 border" placeholder="Enter your Landmark here for example: Front of the SSU Campus" name="landmark"  value="{{old('landmark')}}" autofocuscols="30" rows="5"></textarea>
+                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block" pattern="[0-9]{3}-{1}[0-9]{2}-[0-9]{5}" minlength="12" maxlength="12" placeholder="Account No. EX: 012-34-56789" name="account_no" value="<?php echo e(old('account_no')); ?>" autocomplete="account_no" autofocus>
+                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Name" name="name" value="<?php echo e(old('name')); ?>" autocomplete="name" autofocus>
+                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Email" name="email" value="<?php echo e(old('email')); ?>" autocomplete="email" autofocus>
+                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" pattern="[0-9]{11}" minlength="11" maxlength="11" placeholder="Phone Number" name="cp" value="<?php echo e(old('cp')); ?>" autocomplete="cp" autofocus>
+                
+                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="House / Block / Lot" name="house_block_lot" value="<?php echo e(old('house_block_lot')); ?>" autocomplete="house_block_lot" autofocus>
+                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Street" name="street" value="<?php echo e(old('street')); ?>" autocomplete="street" autofocus>
+                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Subdivision / Village" name="subdivision" value="<?php echo e(old('subdivision')); ?>" autocomplete="subdivision" autofocus>
+                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Barangay" name="barangay" value="<?php echo e(old('barangay')); ?>" autocomplete="barangay" autofocus>
+                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Municipality" name="municipality" value="<?php echo e(old('municipality')); ?>" autocomplete="municipality" autofocus>
+                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Province" name="province" value="<?php echo e(old('province')); ?>" autocomplete="province" autofocus>
+                <textarea  class="input w-full mt-2 flex-1 border" placeholder="Enter your Landmark here for example: Front of the SSU Campus" name="landmark"  value="<?php echo e(old('landmark')); ?>" autofocuscols="30" rows="5"></textarea>
                 <input type="password" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Password" name="password" autocomplete="password" autofocus>
                 <input type="password" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Password Confirmation" name="password_confirmation" autocomplete="password_confirmation" autofocus>
 
@@ -90,7 +71,7 @@ Register | SRMS
                 <a class="text-theme-1 dark:text-theme-10 ml-1" href="javascript:;" data-toggle="modal" data-target="#privacy_policy">Privacy Policy</a>.
             </div>
            <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
-                <a href="{{route('login')}}" class="button button--lg w-full xl:w-32 text-white bg-theme-1 xl:mr-3 align-top float-left">Back</a>
+                <a href="<?php echo e(route('login')); ?>" class="button button--lg w-full xl:w-32 text-white bg-theme-1 xl:mr-3 align-top float-left">Back</a>
                 <button id="registerButton" class="button button--lg w-full xl:w-32 text-white bg-theme-9 xl:mr-3 align-top float-right">Register</button>
             </div>
 
@@ -98,7 +79,7 @@ Register | SRMS
     </div>
 </form>
 
-{{-- Privacy Policy Modal --}}
+
 <div class="modal fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50" id="privacy_policy">
     <div class="w-full max-w-4xl max-h-full mx-auto">
         <div class="p-10 bg-white rounded-lg shadow dark:bg-gray-700">
@@ -206,4 +187,6 @@ Register | SRMS
 
     });
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.guest', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Admin\Desktop\Analiza_Capstone\resources\views/auth/register.blade.php ENDPATH**/ ?>

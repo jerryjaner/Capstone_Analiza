@@ -194,6 +194,7 @@ class WorkOrderController extends Controller
                 ->where('status', 'Inprocess')
                 ->orWhere('status', 'Completed')
                 ->orWhere('status', 'Cancelled')
+                ->orWhere('status', 'Pending')
                 ->paginate(5);
         }
         return view('pages.admin.all-request.index', [
