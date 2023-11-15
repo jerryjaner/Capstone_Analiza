@@ -16,7 +16,7 @@
     </td>
     <td class="w-40">
         <div class="flex">
-            <p class="text-xs">{{ $data->user->address }}</p>
+            <p class="text-xs">{{ $data->user->barangay }} {{ $data->user->municipality }} {{ $data->user->province }}</p>
         </div>
     </td>
     <td class="w-40">

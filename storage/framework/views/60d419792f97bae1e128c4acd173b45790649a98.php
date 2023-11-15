@@ -1,6 +1,5 @@
 <?php
-  $unseen_message = \App\Models\ChMessage::where('from_id', '3')
-                                         ->where('to_id', Auth::user()->id)
+  $unseen_message = \App\Models\ChMessage::where('to_id', Auth::user()->id)
                                          ->where('seen', '0')
                                          ->count();
 ?>

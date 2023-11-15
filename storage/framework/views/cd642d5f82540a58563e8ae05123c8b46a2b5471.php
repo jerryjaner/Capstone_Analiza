@@ -3,7 +3,10 @@
 
      $pending_request = \App\Models\ServiceRequest::where('status','Pending')->count();
      $inprocess_request = \App\Models\ServiceRequest::where('status','Inprocess')->count();
-      $unseen_message = \App\Models\ChMessage::where('from_id', '!=', '3')->where('seen','0')->count();
+
+    $unseen_message = \App\Models\ChMessage::where('to_id', Auth::user()->id)
+                                           ->where('seen', '0')
+                                           ->count();
 ?>
 
 <nav class="side-nav">

@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title'); ?>
 Assigned Work Order
 <?php $__env->stopSection(); ?>

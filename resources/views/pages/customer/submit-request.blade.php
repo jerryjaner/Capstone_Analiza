@@ -84,7 +84,7 @@ Request Submission
             </div>
             <div class="lg:text-right mt-10 lg:mt-0 lg:ml-auto">
                 <div class="text-lg font-medium text-theme-1 dark:text-theme-10 mt-3">{{auth()->user()->name}}</div>
-                <div class="mt-1">{{auth()->user()->address}}, Bulan, Sorsogon</div>
+                <div class="mt-1">{{auth()->user()->house_block_lot}}, {{auth()->user()->street}}, {{auth()->user()->subdivision}}, {{auth()->user()->barangay}}, {{auth()->user()->municipality}}, {{auth()->user()->province}} </div>
                 <div class="mt-1">{{auth()->user()->email}}</div>
                 <div class="mt-1">{{auth()->user()->cp}}</div>
                 <div class="mt-1">{{auth()->user()->landmark}}</div>

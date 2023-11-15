@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title'); ?>
 Request Submission
 <?php $__env->stopSection(); ?>
@@ -86,7 +84,7 @@ Request Submission
             </div>
             <div class="lg:text-right mt-10 lg:mt-0 lg:ml-auto">
                 <div class="text-lg font-medium text-theme-1 dark:text-theme-10 mt-3"><?php echo e(auth()->user()->name); ?></div>
-                <div class="mt-1"><?php echo e(auth()->user()->address); ?>, Bulan, Sorsogon</div>
+                <div class="mt-1"><?php echo e(auth()->user()->house_block_lot); ?>, <?php echo e(auth()->user()->street); ?>, <?php echo e(auth()->user()->subdivision); ?>, <?php echo e(auth()->user()->barangay); ?>, <?php echo e(auth()->user()->municipality); ?>, <?php echo e(auth()->user()->province); ?> </div>
                 <div class="mt-1"><?php echo e(auth()->user()->email); ?></div>
                 <div class="mt-1"><?php echo e(auth()->user()->cp); ?></div>
                 <div class="mt-1"><?php echo e(auth()->user()->landmark); ?></div>
@@ -106,15 +104,15 @@ Request Submission
             <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('service-selection', [])->html();
-} elseif ($_instance->childHasBeenRendered('X3DNV0W')) {
-    $componentId = $_instance->getRenderedChildComponentId('X3DNV0W');
-    $componentTag = $_instance->getRenderedChildComponentTagName('X3DNV0W');
+} elseif ($_instance->childHasBeenRendered('GQT3AG0')) {
+    $componentId = $_instance->getRenderedChildComponentId('GQT3AG0');
+    $componentTag = $_instance->getRenderedChildComponentTagName('GQT3AG0');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('X3DNV0W');
+    $_instance->preserveRenderedChild('GQT3AG0');
 } else {
     $response = \Livewire\Livewire::mount('service-selection', []);
     $html = $response->html();
-    $_instance->logRenderedChild('X3DNV0W', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('GQT3AG0', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
