@@ -16,7 +16,7 @@
     </td>
     <td class="w-40">
         <div class="flex">
-            <p class="text-xs"><?php echo e($data->user->barangay); ?> <?php echo e($data->user->municipality); ?> <?php echo e($data->user->province); ?></p>
+            <p class="text-xs"><?php echo e($data->user->house_block_lot); ?> <?php echo e($data->user->street); ?> <?php echo e($data->user->subdivision); ?> <?php echo e($data->user->barangay); ?> <?php echo e($data->user->municipality); ?> <?php echo e($data->user->province); ?></p>
         </div>
     </td>
     <td class="w-40">
