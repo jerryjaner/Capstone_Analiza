@@ -1,44 +1,44 @@
 @extends('../../layouts.admin')
 
 @section('title')
-Service List
+Announcement
 @endsection
 
 @section('breadcrumbs')
-Service
+Announcement
 @endsection
 
 @section('content')
 <div class="grid grid-cols-12 gap-6 mt-5">
 
     <div class="intro-y col-span-12 flex flex-wrap sm:flex-no-wrap items-center mt-2">
-        <h2 class="intro-y text-lg font-medium mr-5 text-center">Service Management</h2>
+        <h2 class="intro-y text-lg font-medium mr-5 text-center">Announcement</h2>
 
         <div class="intro-x text-center xl:text-left">
-            <a href="javascript:;" data-toggle="modal" data-target="#add" class="rounded-full p-2 w-full text-white text-center hover:bg-blue-400 bg-theme-1 xl:mr-3 flex"><i data-feather="plus"></i><i data-feather="tool"></i></a>
+            <a href="javascript:;" data-toggle="modal" data-target="#add" class="rounded-full p-2 w-full text-white text-center hover:bg-blue-400 bg-theme-1 xl:mr-3 flex"><i data-feather="plus"></i><i data-feather="bell"></i></a>
             <!-- Modal show -->
             <div class="modal" id="add">
-                <div class="modal__content">
+                <div class="modal__content modal__content--xl p-5">
                     <div class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200 dark:border-dark-5">
                         <h2 class="font-medium text-base mr-auto">
-                            Create Service
+                            Create Announcement
                         </h2>
                     </div>
 
-                    <form action="{{route('service.store')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('announcement.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
 
 
                         <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
                             
                             <div class="col-span-12 sm:col-span-12">
-                                <label for="exampleFormControlFile1">Service Name :</label>
-                                <input type="text" name="name" class="input w-full" id="exampleFormControlFile1" required="">
+                                <label for="exampleFormControlFile1">Announcement Title :</label>
+                                <input type="text" name="title" class="input w-full" id="exampleFormControlFile1" required>
                             </div>
 
                             <div class="col-span-12 sm:col-span-12">
-                                <label for="exampleFormControlFile1">Service Description :</label>
-                                <textarea name="description" id="" cols="30" class="input w-full" rows="4" required=""></textarea>
+                                <label for="exampleFormControlFile1">Announcement Content :</label>
+                                <textarea name="content" id="" cols="30" class="input w-full" rows="4" required></textarea>
                             </div>
 
                         </div>
@@ -85,40 +85,44 @@ Service
         <table class="table table-report sm:mt-2">
             <thead>
                 <tr>
-                    <th class="bg-theme-1 text-xs text-white" style="border-top-left-radius: 20px;">Services</th>
-                    <th class="bg-theme-1 text-xs text-white">Description</th>
+                    <th class="bg-theme-1 text-xs text-white" style="border-top-left-radius: 20px;">Title</th>
+                    <th class="bg-theme-1 text-xs text-white">Content</th>
                     <th class="bg-theme-1 text-xs text-white" style="border-top-right-radius: 20px;">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse($service as $data)
+                @forelse($announcement as $data)
                     <tr class="intro-x">
                         <td class="w-40">
                             <div class="flex">
-                                <p class="text-xs">{{$data->name}}</p>
+                                <p class="text-xs">{{$data->title}}</p>
                             </div>
                         </td>
                         <td class="w-40">
-                            <p class="text-xs">{{$data->description}}</p>
+                            <p class="text-xs">{{$data->content}}</p>
                         </td>
                         <td class="w-40">
                             <div class="flex">
-                                <a href="{{route('service.show',$data->id)}}" data-toggle="modal" data-target="#view"
+                                <a href="javascript:;" data-toggle="modal" data-target="#view{{$data->id}}"
                                 class="view-dialog rounded-md p-1 w-35 text-white bg-theme-1 hover:bg-blue-400 xl:mr-3 flex"><i data-feather="eye"></i></a>
                                 <a href="javascript:;" data-toggle="modal" data-target="#edit{{$data->id}}"
                                 class="view-dialog rounded-md p-1 w-35 text-white bg-theme-9 hover:bg-green-400 xl:mr-3 flex"><i data-feather="edit"></i></a>
+                                
+                                <a href="javascript:;" data-toggle="modal" data-target="#delete{{$data->id}}"
+                                    class="view-dialog rounded-md p-1 w-35 text-white bg-theme-6 hover:bg-red-400 xl:mr-3 flex"><i data-feather="delete"></i></a>
                             </div>
                         </td>
 
+                        {{-- FOR THE EDIT MODAL --}}
                         <div class="modal" id="edit{{$data->id}}">
-                            <div class="modal__content">
+                            <div class="modal__content modal__content--xl p-5">
                                 <div class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200 dark:border-dark-5">
                                     <h2 class="font-medium text-base mr-auto">
-                                        Create Service
+                                       Edit Announcement
                                     </h2>
                                 </div>
 
-                                <form action="{{route('service.update',$data->id)}}" method="POST" enctype="multipart/form-data">
+                                <form action="{{route('announcement.update',$data->id)}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
 
@@ -126,13 +130,13 @@ Service
                                     <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
                                       
                                         <div class="col-span-12 sm:col-span-12">
-                                            <label for="exampleFormControlFile1">Service Name :</label>
-                                            <input type="text" name="name" class="input w-full" id="exampleFormControlFile1" value="{{$data->name}}" required="">
+                                            <label for="exampleFormControlFile1">Announcement Title :</label>
+                                            <input type="text" name="title" class="input w-full" id="exampleFormControlFile1" value="{{$data->title}}" required="">
                                         </div>
 
                                         <div class="col-span-12 sm:col-span-12">
-                                            <label for="exampleFormControlFile1">Service Description :</label>
-                                            <textarea name="description" id="" cols="30" class="input w-full" rows="4" required="">{{$data->description}}</textarea>
+                                            <label for="exampleFormControlFile1">Announcement Content :</label>
+                                            <textarea name="content"  cols="30" class="input w-full" rows="4" required="">{{$data->content}}</textarea>
                                         </div>
                                     </div>
                                     <div class="px-5 py-3 text-right border-t border-gray-200 dark:border-dark-5">
@@ -144,17 +148,70 @@ Service
                             </div>
                         </div>
 
+                        {{-- FOR THE DELETE MODAL --}}
+                        <div class="modal" id="delete{{$data->id}}">
+                            <div class="modal__content">
+                                <div class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200 dark:border-dark-5">
+                                    <h2 class="font-medium text-base mr-auto">
+                                        Delete Announcement
+                                    </h2>
+                                </div>
+
+                                <form action="{{route('announcement.delete',$data->id)}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('Delete')
+
+
+                                    <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
+                                        <div class="text-3xl mt-5">Are you sure?</div>
+                                        <div class="text-gray-600 mt-2">Do you really want to delete these records?</div>
+                                        <input type="hidden" id="data_id" name="id"/>
+                                    </div>
+                                    <div class="px-5 py-3 text-right border-t border-gray-200 dark:border-dark-5">
+                                        <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancel</button>
+                                        <button type="submit" class="button w-20 bg-theme-1 text-white">Delete</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+                        {{-- FOR THE VIEW MODAL --}}
+                        <div class="modal" id="view{{$data->id}}">
+                            <div class="modal__content modal__content--xl p-5">
+                                <div class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200 dark:border-dark-5">
+                                    <h2 class="font-medium text-base mr-auto">
+                                        Create Service
+                                    </h2>
+                                </div>
+                                <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
+                                    
+                                    <div class="col-span-12 sm:col-span-12">
+                                        <label for="exampleFormControlFile1">Announcement Title :</label>
+                                        <input type="text" name="title" class="input w-full" id="exampleFormControlFile1" value="{{$data->title}}" readonly>
+                                    </div>
+
+                                    <div class="col-span-12 sm:col-span-12">
+                                        <label for="exampleFormControlFile1">Announcement Content :</label>
+                                        <textarea name="content"  cols="30" class="input w-full" rows="4" readonly>{{$data->content}}</textarea>
+                                    </div>
+                                </div>
+                                <div class="px-5 py-3 text-right border-t border-gray-200 dark:border-dark-5">
+                                    <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancel</button>                                      
+                                </div>
+                            </div>
+                        </div>
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="7" class="text-center text-red-500">No Data Found!</td>
+                        <td colspan="3" class="text-center text-red-500">No Data Found!</td>
                     </tr>
                 @endforelse
             </tbody>
         </table>
         <div class="mt-3">
             @if($pagination <> false)
-            {!! $service->links() !!}
+            {!! $announcement->links() !!}
             @endif
         </div>
     </div>

@@ -16,6 +16,7 @@ use App\Http\Controllers\{
     CustomerController,
     TestController,
     SearchAccountController,
+    AnnouncementController,
 
 
 };
@@ -166,6 +167,17 @@ Route::middleware([
         Route::get('/','index')->name('index');
         Route::get('/customer/assets/{id}','assetListAd')->name('assetListAd');
         Route::get('/summary','summary')->name('summary');
+
+    });
+
+    Route::controller(AnnouncementController::class)
+    ->as('announcement.')
+    ->prefix('announcement')
+    ->group(function(){
+        Route::get('/','index')->name('index');
+        Route::post('/store','store')->name('store');
+        Route::put('/update/{id}','update')->name('update');
+        Route::delete('/delete/{id}','destroy')->name('delete');
 
     });
 
