@@ -148,24 +148,24 @@ Announcement
                             </div>
                         </div>
 
-                        {{-- FOR THE DELETE MODAL --}}
+
                         <div class="modal" id="delete{{$data->id}}">
                             <div class="modal__content">
                                 <div class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200 dark:border-dark-5">
                                     <h2 class="font-medium text-base mr-auto">
-                                        Delete Announcement
+                                       Delete Announcement
                                     </h2>
                                 </div>
 
                                 <form action="{{route('announcement.delete',$data->id)}}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    @method('Delete')
+                                    @method('DELETE')
 
 
                                     <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
                                         <div class="text-3xl mt-5">Are you sure?</div>
                                         <div class="text-gray-600 mt-2">Do you really want to delete these records?</div>
-                                        <input type="hidden" id="data_id" name="id"/>
+                                        
                                     </div>
                                     <div class="px-5 py-3 text-right border-t border-gray-200 dark:border-dark-5">
                                         <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancel</button>
@@ -181,7 +181,7 @@ Announcement
                             <div class="modal__content modal__content--xl p-5">
                                 <div class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200 dark:border-dark-5">
                                     <h2 class="font-medium text-base mr-auto">
-                                        Create Service
+                                        View Announcement
                                     </h2>
                                 </div>
                                 <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
