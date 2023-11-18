@@ -114,11 +114,11 @@ Announcement
         @empty
         
           
-                <div class="flex items-center justify-center" style="margin:auto 600px;">
-                    <div>
-                        <p class="text-black" style="color: red; font-size:100px; text-align:center">NO ANNOUNCEMENT</p>
-                    </div>
-                 </div>
+        <div class="flex items-center justify-center" style="margin:auto 400px;">
+            <div>
+                <p class="text-black" style="color: red; font-size:80px; text-align:center">NO ANNOUNCEMENT</p>
+            </div>
+         </div>
           
             
       
