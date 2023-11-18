@@ -1,7 +1,13 @@
 @php
-  $unseen_message = \App\Models\ChMessage::where('to_id', Auth::user()->id)
+
+    use Carbon\Carbon;
+    $unseen_message = \App\Models\ChMessage::where('to_id', Auth::user()->id)
                                          ->where('seen', '0')
                                          ->count();
+
+    $announcement = \App\Models\Announcement::whereDate('created_at', Carbon::today())->count();
+  
+   
 @endphp
 <nav class="side-nav">
     <a href="" class="intro-x flex items-center pl-5 pt-4">
@@ -21,6 +27,11 @@
             <a href="{{route('announcement.customer_index')}}" class="side-menu {{(!request()->routeIs('announcement.customer_index'))?'bg-theme-1':'bg-blue-500'}}">
                 <div class="side-menu__icon"> <i data-feather="bell"></i> </div>
                 <div class="side-menu__title"> Announcement </div>
+
+                @if($announcement > 0)
+                   <span class="badge right" style="background-color:yellow; padding:3px 10px; border-radius:10%; margin-right:10px;    color:black;" title="New Announcement">{{$announcement}}</span>
+                @endif
+             
             </a>
         </li>
         <li>

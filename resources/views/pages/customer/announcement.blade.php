@@ -65,55 +65,64 @@ Announcement
 
 <div class="col-span-12">
     <div class="grid grid-cols-12 gap-12  mt-5">   
-        @foreach ($announcement as $data )
-        <div class="col-span-6 xl:col-span-6 intro-y">
-            <div class="report-box zoom-in">
-                <div class="box p-5" style="background-image: url('{{ asset('img/bg(1).jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
-                    <div class="header mb-3">
-                        <div class="logo">
-                            <img class="w-20" src="{{asset('img/logo.png')}}">
-                           <h4 class="text-black" style="font-size:20;">
-                             <b>BULAN WATER DISTRICT</b> <br>
-                              <b> De Vera St., Zone 4, Bulan, Sorsogon</b> <br>
-                           </h4>
-                        </div>
-                    </div>
-                    <h1 class="text-lg text-black font-medium truncate text-center mt-10" style="font-size:30; font-weight: 900;">
-                       {{$data->title}}
-                     </h1>
-                     <div class="p-5">
-                        
-                        <div class="mb-4">
-                            {{-- <i class="fas fa-calendar-alt "></i> --}}
-                            <span class="text-black" style="font-size:20; "><strong>Date:</strong> {{$data->date}}</span>
-                        </div>
-                        <div class="mb-4">
-                            {{-- <i class="fas fa-clock "></i> --}}
-                            <span class="text-black" style="font-size:20; "><strong>Time:</strong> {{$data->time}}</span>
-                        </div>
+        @forelse ($announcement as $data)
+                <div class="col-span-6 xl:col-span-6 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5" style="background-image: url('{{ asset('img/bg(1).jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
+                            <div class="header mb-3">
+                                <div class="logo">
+                                    <img class="w-20" src="{{asset('img/logo.png')}}">
+                                <h4 class="text-black" style="font-size:20;">
+                                    <b>BULAN WATER DISTRICT</b> <br>
+                                    <b> De Vera St., Zone 4, Bulan, Sorsogon</b> <br>
+                                </h4>
+                                </div>
+                            </div>
+                            <h1 class="text-lg text-black font-medium truncate text-center mt-10" style="font-size:30; font-weight: 900;">
+                                 {{$data->title}}
+                            </h1>
+                            <div class="p-5">
+                                
+                                <div class="mb-4">
+                                    <span class="text-black" style="font-size:20; "><strong>Date:</strong> {{$data->date}}</span>
+                                </div>
+                                <div class="mb-4">
+                                  
+                                    <span class="text-black" style="font-size:20; "><strong>Time:</strong> {{$data->time}}</span>
+                                </div>
 
-                        @if($data->duration > 0)
-                        <div class="mb-4">
-                            {{-- <i class="fas fa-hourglass-half "></i> --}}
-                            <span class="text-black" style="font-size:20;"><strong>Duration:</strong> {{$data->duration}}</span>
-                        </div>
-                        @endif
+                                @if($data->duration > 0)
+                                <div class="mb-4">
+                                    <span class="text-black" style="font-size:20;"><strong>Duration:</strong> {{$data->duration}}</span>
+                                </div>
+                                @endif
 
-                        <p class="text-black mb-4"style="font-size:20; " >Dear Residents,</p>
-                        <p class="text-black mb-4" id="content" style="font-size:20; text-indent: 20px;">
-                           {{$data->content}}
-                        </p>
-                        <p class="text-black" style="font-size:20;">
-                            For any inquiries or concerns, please contact our customer support at 09292216587.
-                        </p>
-                    </div>
-                    <div class="p-5 text-black">
-                        <p style="text-align:center; font-size:20;">Thank you for your cooperation.</p>
+                                <p class="text-black mb-4"style="font-size:20; " >Dear Residents,</p>
+                                <p class="text-black mb-4" id="content" style="font-size:20; text-indent: 20px;">
+                                {{$data->content}}
+                                </p>
+                                <p class="text-black" style="font-size:20;">
+                                    For any inquiries or concerns, please contact our customer support at 09292216587.
+                                </p>
+                            </div>
+                            <div class="p-5 text-black">
+                                <p style="text-align:center; font-size:20;">Thank you for your cooperation.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        @endforeach
+        @empty
+        
+          
+                <div class="flex items-center justify-center" style="margin:auto 600px;">
+                    <div>
+                        <p class="text-black" style="color: red; font-size:100px; text-align:center">NO ANNOUNCEMENT</p>
+                    </div>
+                 </div>
+          
+            
+      
+        @endforelse
     </div>
 </div>
 <div class="mt-5">
