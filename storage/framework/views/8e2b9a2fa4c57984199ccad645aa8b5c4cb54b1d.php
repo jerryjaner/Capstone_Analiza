@@ -10,10 +10,17 @@
     </a>
     <div class="side-nav__devider my-6"></div>
     <ul>
+       
         <li>
             <a href="<?php echo e(url('home')); ?>" class="side-menu <?php echo e((!request()->routeIs('home'))?'bg-theme-1':'bg-blue-500'); ?>">
                 <div class="side-menu__icon"> <i data-feather="user"></i> </div>
                 <div class="side-menu__title"> Profile </div>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo e(route('announcement.customer_index')); ?>" class="side-menu <?php echo e((!request()->routeIs('announcement.customer_index'))?'bg-theme-1':'bg-blue-500'); ?>">
+                <div class="side-menu__icon"> <i data-feather="bell"></i> </div>
+                <div class="side-menu__title"> Announcement </div>
             </a>
         </li>
         <li>

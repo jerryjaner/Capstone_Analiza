@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->longtext('content');
+            $table->date('date');
+            $table->time('time');
+            $table->string('duration')->nullable();
             $table->timestamps();
         });
     }

@@ -179,6 +179,9 @@ Route::middleware([
         Route::put('/update/{id}','update')->name('update');
         Route::delete('/delete/{id}','destroy')->name('delete');
 
+
+        Route::get('/customer','customer_index')->name('customer_index');
+
     });
 
 });

@@ -31,9 +31,25 @@ Announcement
 
                         <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
                             
+
                             <div class="col-span-12 sm:col-span-12">
                                 <label for="exampleFormControlFile1">Announcement Title :</label>
                                 <input type="text" name="title" class="input w-full" id="exampleFormControlFile1" required>
+                            </div>
+
+                            <div class="col-span-12 sm:col-span-12">
+                                <label for="exampleFormControlFile1">Announcement Date :</label>
+                                <input type="date" name="date" class="input w-full" id="exampleFormControlFile1" required>
+                            </div>
+
+                            <div class="col-span-12 sm:col-span-12">
+                                <label for="exampleFormControlFile1">Announcement Time :</label>
+                                <input type="time" name="time" class="input w-full" id="exampleFormControlFile1" required>
+                            </div>
+
+                            <div class="col-span-12 sm:col-span-12">
+                                <label for="exampleFormControlFile1">Announcement Duration :</label>
+                                <input type="text" name="duration" class="input w-full" id="exampleFormControlFile1">
                             </div>
 
                             <div class="col-span-12 sm:col-span-12">
@@ -41,6 +57,7 @@ Announcement
                                 <textarea name="content" id="" cols="30" class="input w-full" rows="4" required></textarea>
                             </div>
 
+                            
                         </div>
                         <div class="px-5 py-3 text-right border-t border-gray-200 dark:border-dark-5">
                             <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancel</button>
@@ -87,6 +104,9 @@ Announcement
                 <tr>
                     <th class="bg-theme-1 text-xs text-white" style="border-top-left-radius: 20px;">Title</th>
                     <th class="bg-theme-1 text-xs text-white">Content</th>
+                    <th class="bg-theme-1 text-xs text-white">Date</th>
+                    <th class="bg-theme-1 text-xs text-white">Time</th>
+                    <th class="bg-theme-1 text-xs text-white">Duration</th>
                     <th class="bg-theme-1 text-xs text-white" style="border-top-right-radius: 20px;">Action</th>
                 </tr>
             </thead>
@@ -99,7 +119,18 @@ Announcement
                             </div>
                         </td>
                         <td class="w-40">
-                            <p class="text-xs">{{$data->content}}</p>
+                            <p class="text-xs" style=" max-width: 200px;  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                              {{$data->content}}
+                            </p>
+                        </td>
+                        <td class="w-40">
+                            <p class="text-xs">{{$data->date}}</p>
+                        </td>
+                        <td class="w-40">
+                            <p class="text-xs">{{$data->time}}</p>
+                        </td>
+                        <td class="w-40">
+                            <p class="text-xs">{{$data->duration ?? 'N/A'}}</p>
                         </td>
                         <td class="w-40">
                             <div class="flex">
@@ -132,6 +163,21 @@ Announcement
                                         <div class="col-span-12 sm:col-span-12">
                                             <label for="exampleFormControlFile1">Announcement Title :</label>
                                             <input type="text" name="title" class="input w-full" id="exampleFormControlFile1" value="{{$data->title}}" required="">
+                                        </div>
+
+                                        <div class="col-span-12 sm:col-span-12">
+                                            <label for="exampleFormControlFile1">Announcement Date :</label>
+                                            <input type="date" name="date" class="input w-full" id="exampleFormControlFile1" value="{{$data->date}}" required>
+                                        </div>
+            
+                                        <div class="col-span-12 sm:col-span-12">
+                                            <label for="exampleFormControlFile1">Announcement Time :</label>
+                                            <input type="time" name="time" class="input w-full" id="exampleFormControlFile1" value="{{$data->time}}" required>
+                                        </div>
+            
+                                        <div class="col-span-12 sm:col-span-12">
+                                            <label for="exampleFormControlFile1">Announcement Duration :</label>
+                                            <input type="text" name="duration" class="input w-full" id="exampleFormControlFile1" value="{{$data->duration}}">
                                         </div>
 
                                         <div class="col-span-12 sm:col-span-12">
@@ -190,7 +236,20 @@ Announcement
                                         <label for="exampleFormControlFile1">Announcement Title :</label>
                                         <input type="text" name="title" class="input w-full" id="exampleFormControlFile1" value="{{$data->title}}" readonly>
                                     </div>
-
+                                    <div class="col-span-12 sm:col-span-12">
+                                        <label for="exampleFormControlFile1">Announcement Date :</label>
+                                        <input type="date" name="date" class="input w-full" id="exampleFormControlFile1" value="{{$data->date}}" readonly>
+                                    </div>
+       
+                                    <div class="col-span-12 sm:col-span-12">
+                                        <label for="exampleFormControlFile1">Announcement Time :</label>
+                                        <input type="time" name="time" class="input w-full" id="exampleFormControlFile1" value="{{$data->time}}" readonly>
+                                    </div>readonly
+        
+                                    <div class="col-span-12 sm:col-span-12">
+                                        <label for="exampleFormControlFile1">Announcement Duration :</label>
+                                        <input type="text" name="duration" class="input w-full" id="exampleFormControlFile1" value="{{$data->duration}}" readonly>
+                                    </div>
                                     <div class="col-span-12 sm:col-span-12">
                                         <label for="exampleFormControlFile1">Announcement Content :</label>
                                         <textarea name="content"  cols="30" class="input w-full" rows="4" readonly>{{$data->content}}</textarea>
@@ -204,7 +263,7 @@ Announcement
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="3" class="text-center text-red-500">No Data Found!</td>
+                        <td colspan="6" class="text-center text-red-500">No Data Found!</td>
                     </tr>
                 @endforelse
             </tbody>
