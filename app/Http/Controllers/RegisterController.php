@@ -46,7 +46,7 @@ class RegisterController extends Controller
             'verification' => '0',
         ]);
 
-        return Redirect()->back()->with('message', 'Account is succesfully registerd');
+        return Redirect()->back()->with('message', 'Account is succesfully registered');
 
     }
 }

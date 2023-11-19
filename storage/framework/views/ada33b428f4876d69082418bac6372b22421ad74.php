@@ -1,36 +1,51 @@
-@extends('layouts.guest')
-@section('title')
+<?php $__env->startSection('title'); ?>
 Login | SRMS
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 
-<form method="POST" action="{{ route('login') }}">
-    @csrf
+<form method="POST" action="<?php echo e(route('login')); ?>">
+    <?php echo csrf_field(); ?>
     <div class="h-screen xl:h-auto flex py-5 xl:py-0 my-10 xl:my-0">
         <div class="my-auto mx-auto xl:ml-20 bg-white xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full  xl:w-auto">
-            <img alt="" class="-intro-x w-30 mx-auto" src="{{asset('img/logo.png')}}">
+            <img alt="" class="-intro-x w-30 mx-auto" src="<?php echo e(asset('img/logo.png')); ?>">
             <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">
                 Sign In
             </h2>
             <div class="intro-x mt-2 text-gray-500 xl:hidden text-center">A few more clicks to sign in to your account.</div>
             <div class="flex">
-            <x-validation-errors class="intro-x mt-4 mx-auto" />
-                @if (session('status'))
+            <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.validation-errors','data' => ['class' => 'intro-x mt-4 mx-auto']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
+<?php $component->withName('validation-errors'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag && $constructor = (new ReflectionClass(Illuminate\View\AnonymousComponent::class))->getConstructor()): ?>
+<?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
+<?php endif; ?>
+<?php $component->withAttributes(['class' => 'intro-x mt-4 mx-auto']); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+                <?php if(session('status')): ?>
                     <div class="mb-4 font-medium text-lg text-green-700">
-                        {{ session('status') }}
-                    </div>
-                @endif
+                        <?php echo e(session('status')); ?>
 
-                @if (session('error_message'))
-                    <div class="mb-4 font-medium text-lg text-red-700">
-                        {{ session('error_message') }}
                     </div>
-                @endif
+                <?php endif; ?>
+
+                <?php if(session('error_message')): ?>
+                    <div class="mb-4 font-medium text-lg text-red-700">
+                        <?php echo e(session('error_message')); ?>
+
+                    </div>
+                <?php endif; ?>
             </div>
 
 
             <div class="intro-x mt-8">
-                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block" name="email" value="{{old('email')}}" placeholder="Email">
+                <input type="text" class="intro-x login__input input input--lg border border-gray-300 block" name="email" value="<?php echo e(old('email')); ?>" placeholder="Email">
                 <input type="password" class="intro-x login__input input input--lg border border-gray-300 block mt-4" name="password" placeholder="Password">
             </div>
             <div class="intro-x flex text-gray-700 dark:text-gray-600 text-xs sm:text-sm mt-4">
@@ -43,8 +58,8 @@ Login | SRMS
             <div class="intro-x mt-5">
 
                 <button class="button button--lg w-full xl:w-50 text-white bg-theme-1 xl:mr-3 align-top w-100 mb-2">Login</button>
-                <a  href="{{route('register')}}"class="button button--lg w-full xl:w-27 text-white bg-theme-9 align-top w-100 float-right mt-5">Register</a>
-                <a  href="{{route('account.search')}}"class="button button--lg w-full xl:w-27 text-white bg-theme-7 align-top w-100 float-right mt-5 mb-5">Search Account</a>
+                <a  href="<?php echo e(route('register')); ?>"class="button button--lg w-full xl:w-27 text-white bg-theme-9 align-top w-100 float-right mt-5">Register</a>
+                <a  href="<?php echo e(route('account.search')); ?>"class="button button--lg w-full xl:w-27 text-white bg-theme-7 align-top w-100 float-right mt-5 mb-5">Search Account</a>
 
             </div>
 
@@ -60,7 +75,7 @@ Login | SRMS
     </div>
 </form>
 
-{{-- Terms and Condition Modal --}}
+
 <div class="modal fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50" id="terms_and_condition">
     <div class="w-full max-w-4xl max-h-full mx-auto">
         <div class="p-10 bg-white rounded-lg shadow dark:bg-gray-700">
@@ -156,7 +171,7 @@ Login | SRMS
     </div>
 </div>
 
-{{-- Privacy Policy Modal --}}
+
 <div class="modal fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50" id="privacy_policy">
     <div class="w-full max-w-4xl max-h-full mx-auto">
         <div class="p-10 bg-white rounded-lg shadow dark:bg-gray-700">
@@ -248,4 +263,6 @@ Login | SRMS
 </div>
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.guest', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Admin\Desktop\Capstone_Analiza\resources\views/auth/login.blade.php ENDPATH**/ ?>

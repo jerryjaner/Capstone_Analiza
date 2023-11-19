@@ -27,8 +27,8 @@ class AnnouncementController extends Controller
             'pagination' => $pagination
         ]);
 
-        
-        
+
+
     }
 
     public function store(Request $request){
@@ -47,7 +47,7 @@ class AnnouncementController extends Controller
 
     public function update(Request $request, $id)
     {
-       
+
         Announcement::whereId($id)->update([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
@@ -62,7 +62,7 @@ class AnnouncementController extends Controller
     {
         $announcement = Announcement::findorFail($request->id);
         if($announcement){
-          
+
             $announcement->delete();
         }
         return redirect()->back()->with('err', 'Announcement Successfully Deleted!');
@@ -72,14 +72,14 @@ class AnnouncementController extends Controller
     //FOR THE CUSTOMER VIEW
     public function customer_index(){
 
-        
+
         $pagination = true;
         $announcement = Announcement::orderBy('created_at', 'desc')->paginate(2);
-        
+
         return view('pages.customer.announcement',[
             'announcement' => $announcement,
             'pagination' => $pagination
         ]);
-        
+
     }
 }
