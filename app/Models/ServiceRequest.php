@@ -26,6 +26,10 @@ class ServiceRequest extends Model
     ];
 
 
+    public function assignedtransactionasset(){
+        return $this->hasMany(AssignedTransactionAsset::class, 'service_request_id', 'id');
+    }
+
 
     public function service(){
         return $this->belongsTo(Service::class);

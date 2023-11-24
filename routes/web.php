@@ -72,8 +72,6 @@ Route::middleware([
         Route::put('/update','update')->name('update');
         Route::delete('/delete','destroy')->name('delete');
 
-
-
     });
 
 
@@ -119,7 +117,6 @@ Route::middleware([
         Route::get('/status','serviceStatus')->name('service_status');
         Route::get('/customer/assets/{id}','CustomerAssetList')->name('Customer_AssetList');
 
-
         Route::post('/store','store')->name('store');
         Route::get('/request-log','requestLog')->name('request_log');
         Route::put('/request-cancel','requestCancel')->name('request_cancel');
@@ -147,7 +144,10 @@ Route::middleware([
         Route::get('customer/assets/{id}','assetListTech')->name('assetListTech');
 
         //FOR THE ADMIN
-        Route::get('/all=request','all_request')->name('all_request');
+        Route::get('/all-request','all_request')->name('all_request');
+
+
+
 
     });
     Route::controller(AssetController::class)
@@ -174,12 +174,14 @@ Route::middleware([
     ->as('announcement.')
     ->prefix('announcement')
     ->group(function(){
+
+        //FOR THE ADMIN VIEW
         Route::get('/','index')->name('index');
         Route::post('/store','store')->name('store');
         Route::put('/update/{id}','update')->name('update');
         Route::delete('/delete/{id}','destroy')->name('delete');
 
-
+        //FOR THE CUSTOMER VIEW
         Route::get('/customer','customer_index')->name('customer_index');
 
     });

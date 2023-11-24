@@ -76,45 +76,83 @@ class SellController extends Controller
         //
     }
 
-    public function summary()
+    public function summary(Request $request)
     {
-        // $usersByBarangay = User::where('role','0')->with('serviceRequests')
-        //                 ->whereNotNull('address')
-        //                 ->get()
-        //                 ->groupBy('address')
-        //                 ->map(function ($users) {
-        //                     return $users->pluck('serviceRequests')->flatten()->count();
-        //                 });
 
-        // return view('pages.admin.report.summary',[
-        //     'usersByBarangay' => $usersByBarangay ,
+        // $pagination = true;
+        // $summary_report = ServiceRequest::with(['AssignedTransactionAsset', 'service', 'technician'])->get();
+
+        // // Group the AssignedTransactionAsset records by service_request_id
+        // $groupedTransactions = $summary_report->flatMap(function ($serviceRequest) {
+        //     return $serviceRequest->AssignedTransactionAsset->groupBy('service_request_id');
+        // });
+
+        // // Calculate grand totals
+        // $grandTotalPrice = $summary_report->flatMap->AssignedTransactionAsset->sum('total_price_amount');
+        // $grandTotalCostLBC = $summary_report->flatMap->AssignedTransactionAsset->sum('total_cost_lbc');
+
+
+        // return view('pages.admin.report.summary', [
+        //     'summary_report' => $summary_report,
+        //     'grandTotalPrice' => $grandTotalPrice,
+        //     'grandTotalCostLBC' => $grandTotalCostLBC,
+        //     'pagination' => $pagination,
         // ]);
 
-         $pagination = true;
-         $usersByBarangay = User::where('role','0')->with('serviceRequests')
-                        ->whereNotNull('address')
-                        ->get()
-                        ->groupBy('address')
-                        ->map(function ($users) {
-                            return $users->pluck('serviceRequests')->flatten()->count();
-                        });
 
+        if ($request->filled('search')) {
+            $searchQuery = $request->input('search');
 
+            $assignedAssets = AssignedTransactionAsset::get();
+            $summary_report = ServiceRequest::with(['service', 'technician', 'AssignedTransactionAsset'])
+                ->where(function ($query) use ($searchQuery) {
+                    $query->where('req_no', 'LIKE', "%$searchQuery%")
+                        ->orWhere('account_no', 'LIKE', "%$searchQuery%")
+                        ->orWhere('status', 'LIKE', "%$searchQuery%");
 
-        return view('pages.admin.report.summary',[
-            'usersByBarangay' => $usersByBarangay,
-            'pagination' => $pagination
-        ]);
+                })->get();
+            $pagination = false;
+            return view('pages.admin.report.summary', [
+                'summary_report' => $summary_report,
+                'assignedAssets' => $assignedAssets,
+                'pagination' => $pagination
+            ]);
+        } else {
+            $pagination = true;
+            $query = ServiceRequest::with(['service', 'technician','AssignedTransactionAsset']);
 
+            if ($request->filled('daterange')) {
+                list($startDate, $endDate) = explode(' - ', $request->input('daterange'));
 
+                $startDate = date('Y-m-d', strtotime($startDate));
+                $endDate = date('Y-m-d', strtotime($endDate));
 
+                $query->whereBetween('created_at', [$startDate, $endDate]);
+            }
 
+            $summary_report = $query->paginate(5);
+            $assignedAssets = AssignedTransactionAsset::get();
 
-
-
-
+            return view('pages.admin.report.summary', [
+                'summary_report' => $summary_report,
+                'assignedAssets' => $assignedAssets,
+                'pagination' => $pagination
+            ]);
+        }
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function edit($id)
     {

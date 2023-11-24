@@ -422,5 +422,6 @@ Work Order
         var id = $(this).data('id');
         $('.modal__content #data_id').val(id);
     });
+
 </script>
 @endpush

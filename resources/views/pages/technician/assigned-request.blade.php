@@ -176,10 +176,7 @@ Assigned Work Order
                                     <label>Customer Name</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->name}}" readonly>
                                 </div>
-                                {{-- <div class="col-span-12 sm:col-span-6">
-                                    <label>Customer Address</label>
-                                    <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->address}}" readonly>
-                                </div> --}}
+
                                 <div class="col-span-12 sm:col-span-6">
                                     <label>Customer Address</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->house_block_lot}} {{$data->user->street}} {{$data->user->subdivision}} {{$data->user->barangay}} {{$data->user->municipality}} {{$data->user->province}} "readonly>
@@ -230,6 +227,9 @@ Assigned Work Order
                             </div>
                             <div class="px-5 py-3 text-right border-t border-gray-200 dark:border-dark-5">
                                 <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Close</button>
+                                @if($data->status == 'Inprocess')
+                                    <button type="submit" class="button w-30 bg-theme-1 text-white">Completed</button>
+                                @endif
                             </div>
                         </form>
                     </div>
@@ -251,10 +251,7 @@ Assigned Work Order
                                     <label>Customer Name</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->name}}" readonly>
                                 </div>
-                                {{-- <div class="col-span-12 sm:col-span-6">
-                                    <label>Customer Address</label>
-                                    <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->address}}" readonly>
-                                </div> --}}
+
                                 <div class="col-span-12 sm:col-span-6">
                                     <label>Customer Address</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->house_block_lot}} {{$data->user->street}} {{$data->user->subdivision}} {{$data->user->barangay}} {{$data->user->municipality}} {{$data->user->province}} "readonly>
@@ -414,10 +411,7 @@ Assigned Work Order
                                     <label>Customer Name</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->name}}" readonly>
                                 </div>
-                                {{-- <div class="col-span-12 sm:col-span-6">
-                                    <label>Customer Address</label>
-                                    <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->address}}" readonly>
-                                </div> --}}
+
                                 <div class="col-span-12 sm:col-span-6">
                                     <label>Customer Address</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->house_block_lot}} {{$data->user->street}} {{$data->user->subdivision}} {{$data->user->barangay}} {{$data->user->municipality}} {{$data->user->province}} "readonly>
@@ -468,6 +462,9 @@ Assigned Work Order
                             </div>
                             <div class="px-5 py-3 text-right border-t border-gray-200 dark:border-dark-5">
                                 <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Close</button>
+                                @if($data->status == 'Inprocess')
+                                    <button type="submit" class="button w-30 bg-theme-1 text-white">Completed</button>
+                                @endif
                             </div>
                         </form>
                     </div>
@@ -489,10 +486,7 @@ Assigned Work Order
                                     <label>Customer Name</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->name}}" readonly>
                                 </div>
-                                {{-- <div class="col-span-12 sm:col-span-6">
-                                    <label>Customer Address</label>
-                                    <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->address}}" readonly>
-                                </div> --}}
+
                                 <div class="col-span-12 sm:col-span-6">
                                     <label>Customer Address</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->house_block_lot}} {{$data->user->street}} {{$data->user->subdivision}} {{$data->user->barangay}} {{$data->user->municipality}} {{$data->user->province}} "readonly>
@@ -651,10 +645,7 @@ Assigned Work Order
                                     <label>Customer Name</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->name}}" readonly>
                                 </div>
-                                {{-- <div class="col-span-12 sm:col-span-6">
-                                    <label>Customer Address</label>
-                                    <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->address}}" readonly>
-                                </div> --}}
+
                                 <div class="col-span-12 sm:col-span-6">
                                     <label>Customer Address</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->house_block_lot}} {{$data->user->street}} {{$data->user->subdivision}} {{$data->user->barangay}} {{$data->user->municipality}} {{$data->user->province}} "readonly>
@@ -705,6 +696,9 @@ Assigned Work Order
                             </div>
                             <div class="px-5 py-3 text-right border-t border-gray-200 dark:border-dark-5">
                                 <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Close</button>
+                                @if($data->status == 'Inprocess')
+                                    <button type="submit" class="button w-30 bg-theme-1 text-white">Completed</button>
+                                @endif
                             </div>
                         </form>
                     </div>
@@ -726,10 +720,7 @@ Assigned Work Order
                                     <label>Customer Name</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->name}}" readonly>
                                 </div>
-                                {{-- <div class="col-span-12 sm:col-span-6">
-                                    <label>Customer Address</label>
-                                    <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->address}}" readonly>
-                                </div> --}}
+
                                 <div class="col-span-12 sm:col-span-6">
                                     <label>Customer Address</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->house_block_lot}} {{$data->user->street}} {{$data->user->subdivision}} {{$data->user->barangay}} {{$data->user->municipality}} {{$data->user->province}} "readonly>
@@ -815,8 +806,7 @@ Assigned Work Order
 
                     <td class="w-40">
                         <div class="flex">
-                            {{-- {{$data->user->address ?? 'N/A'}} --}}
-                            {{$data->user->house_block_lot}} {{$data->user->street}} {{$data->user->subdivision}} {{$data->user->barangay}} {{$data->user->municipality}} {{$data->user->province}} {{$data->user->house_block_lot}} {{$data->user->street}} {{$data->user->subdivision}} {{$data->user->barangay}} {{$data->user->municipality}} {{$data->user->province}}
+                            {{$data->user->house_block_lot}} {{$data->user->street}} {{$data->user->subdivision}} {{$data->user->barangay}} {{$data->user->municipality}} {{$data->user->province}}
                         </div>
                     </td>
                     <td class="w-40">
@@ -888,10 +878,6 @@ Assigned Work Order
                                     <label>Customer Name</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->name}}" readonly>
                                 </div>
-                                {{-- <div class="col-span-12 sm:col-span-6">
-                                    <label>Customer Address</label>
-                                    <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->address}}" readonly>
-                                </div> --}}
                                 <div class="col-span-12 sm:col-span-6">
                                     <label>Customer Address</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->house_block_lot}} {{$data->user->street}} {{$data->user->subdivision}} {{$data->user->barangay}} {{$data->user->municipality}} {{$data->user->province}} "readonly>
@@ -942,6 +928,9 @@ Assigned Work Order
                             </div>
                             <div class="px-5 py-3 text-right border-t border-gray-200 dark:border-dark-5">
                                 <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Close</button>
+                                @if($data->status == 'Inprocess')
+                                   <button type="submit" class="button w-30 bg-theme-1 text-white">Completed</button>
+                                @endif
                             </div>
                         </form>
                     </div>
@@ -963,10 +952,7 @@ Assigned Work Order
                                     <label>Customer Name</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->name}}" readonly>
                                 </div>
-                                {{-- <div class="col-span-12 sm:col-span-6">
-                                    <label>Customer Address</label>
-                                    <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->address}}" readonly>
-                                </div> --}}
+
                                 <div class="col-span-12 sm:col-span-6">
                                     <label>Customer Address</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->user->house_block_lot}} {{$data->user->street}} {{$data->user->subdivision}} {{$data->user->barangay}} {{$data->user->municipality}} {{$data->user->province}} "readonly>
@@ -1026,7 +1012,7 @@ Assigned Work Order
 
                 @empty
                 <tr>
-                    <td colspan="9" class="text-center text-red-500">No Data Found!</td>
+                    <td colspan="10" class="text-center text-red-500">No Data Found!</td>
                 </tr>
                @endforelse
             </tbody>

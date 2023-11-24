@@ -169,10 +169,6 @@ class WorkOrderController extends Controller
         ]);
     }
 
-
-
-
-
     //FOR THE ADMIN
 
     public function all_request(Request $request){
@@ -197,6 +193,7 @@ class WorkOrderController extends Controller
                 ->orWhere('status', 'Pending')
                 ->paginate(5);
         }
+
         return view('pages.admin.all-request.index', [
             'pagination' => $pagination,
             'AllRequest' => $AllRequest,
