@@ -13,6 +13,10 @@ Announcement
   overflow: hidden;
   /* white-space: nowrap; */
   text-overflow: ellipsis;
+  text-align: justify;
+  text-justify: inter-character;
+  font-size:20;
+  text-indent: 20px;
 }
 .header{
       text-align: center;
@@ -21,7 +25,7 @@ Announcement
     display:flex;
     align-items:center;
     justify-content: center;
-    
+
 }
 .header img{
     float:left;
@@ -64,7 +68,7 @@ Announcement
 @endif
 
 <div class="col-span-12">
-    <div class="grid grid-cols-12 gap-12  mt-5">   
+    <div class="grid grid-cols-12 gap-12  mt-5">
         @forelse ($announcement as $data)
                 <div class="col-span-6 xl:col-span-6 intro-y">
                     <div class="report-box zoom-in">
@@ -82,24 +86,24 @@ Announcement
                                  {{$data->title}}
                             </h1>
                             <div class="p-5">
-                                
+
                                 <div class="mb-4">
                                     <span class="text-black" style="font-size:20; "><strong>Date:</strong> {{$data->date}}</span>
                                 </div>
                                 <div class="mb-4">
-                                  
+
                                     <span class="text-black" style="font-size:20; "><strong>Time:</strong> {{$data->time}}</span>
                                 </div>
 
                                 @if($data->duration > 0)
-                                <div class="mb-4">
-                                    <span class="text-black" style="font-size:20;"><strong>Duration:</strong> {{$data->duration}}</span>
-                                </div>
+                                    <div class="mb-4">
+                                        <span class="text-black" style="font-size:20;"><strong>Duration:</strong> {{$data->duration}}</span>
+                                    </div>
                                 @endif
 
                                 <p class="text-black mb-4"style="font-size:20; " >Dear Residents,</p>
-                                <p class="text-black mb-4" id="content" style="font-size:20; text-indent: 20px;">
-                                {{$data->content}}
+                                <p class="text-black mb-4" id="content">
+                                     {{$data->content}}
                                 </p>
                                 <p class="text-black" style="font-size:20;">
                                     For any inquiries or concerns, please contact our customer support at 09292216587.
@@ -112,16 +116,16 @@ Announcement
                     </div>
                 </div>
         @empty
-        
-          
+
+
         <div class="flex items-center justify-center" style="margin:auto 400px;">
             <div>
                 <p class="text-black" style="color: red; font-size:80px; text-align:center">NO ANNOUNCEMENT</p>
             </div>
          </div>
-          
-            
-      
+
+
+
         @endforelse
     </div>
 </div>

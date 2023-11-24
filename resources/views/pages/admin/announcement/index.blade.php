@@ -30,7 +30,7 @@ Announcement
 
 
                         <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
-                            
+
 
                             <div class="col-span-12 sm:col-span-12">
                                 <label for="exampleFormControlFile1">Announcement Title :</label>
@@ -57,7 +57,7 @@ Announcement
                                 <textarea name="content" id="" cols="30" class="input w-full" rows="4" required></textarea>
                             </div>
 
-                            
+
                         </div>
                         <div class="px-5 py-3 text-right border-t border-gray-200 dark:border-dark-5">
                             <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancel</button>
@@ -138,7 +138,7 @@ Announcement
                                 class="view-dialog rounded-md p-1 w-35 text-white bg-theme-1 hover:bg-blue-400 xl:mr-3 flex"><i data-feather="eye"></i></a>
                                 <a href="javascript:;" data-toggle="modal" data-target="#edit{{$data->id}}"
                                 class="view-dialog rounded-md p-1 w-35 text-white bg-theme-9 hover:bg-green-400 xl:mr-3 flex"><i data-feather="edit"></i></a>
-                                
+
                                 <a href="javascript:;" data-toggle="modal" data-target="#delete{{$data->id}}"
                                     class="view-dialog rounded-md p-1 w-35 text-white bg-theme-6 hover:bg-red-400 xl:mr-3 flex"><i data-feather="delete"></i></a>
                             </div>
@@ -159,7 +159,7 @@ Announcement
 
 
                                     <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
-                                      
+
                                         <div class="col-span-12 sm:col-span-12">
                                             <label for="exampleFormControlFile1">Announcement Title :</label>
                                             <input type="text" name="title" class="input w-full" id="exampleFormControlFile1" value="{{$data->title}}" required="">
@@ -169,12 +169,12 @@ Announcement
                                             <label for="exampleFormControlFile1">Announcement Date :</label>
                                             <input type="date" name="date" class="input w-full" id="exampleFormControlFile1" value="{{$data->date}}" required>
                                         </div>
-            
+
                                         <div class="col-span-12 sm:col-span-12">
                                             <label for="exampleFormControlFile1">Announcement Time :</label>
                                             <input type="time" name="time" class="input w-full" id="exampleFormControlFile1" value="{{$data->time}}" required>
                                         </div>
-            
+
                                         <div class="col-span-12 sm:col-span-12">
                                             <label for="exampleFormControlFile1">Announcement Duration :</label>
                                             <input type="text" name="duration" class="input w-full" id="exampleFormControlFile1" value="{{$data->duration}}">
@@ -211,7 +211,7 @@ Announcement
                                     <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
                                         <div class="text-3xl mt-5">Are you sure?</div>
                                         <div class="text-gray-600 mt-2">Do you really want to delete these records?</div>
-                                        
+
                                     </div>
                                     <div class="px-5 py-3 text-right border-t border-gray-200 dark:border-dark-5">
                                         <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancel</button>
@@ -231,7 +231,7 @@ Announcement
                                     </h2>
                                 </div>
                                 <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
-                                    
+
                                     <div class="col-span-12 sm:col-span-12">
                                         <label for="exampleFormControlFile1">Announcement Title :</label>
                                         <input type="text" name="title" class="input w-full" id="exampleFormControlFile1" value="{{$data->title}}" readonly>
@@ -240,12 +240,12 @@ Announcement
                                         <label for="exampleFormControlFile1">Announcement Date :</label>
                                         <input type="date" name="date" class="input w-full" id="exampleFormControlFile1" value="{{$data->date}}" readonly>
                                     </div>
-       
+
                                     <div class="col-span-12 sm:col-span-12">
                                         <label for="exampleFormControlFile1">Announcement Time :</label>
                                         <input type="time" name="time" class="input w-full" id="exampleFormControlFile1" value="{{$data->time}}" readonly>
                                     </div>readonly
-        
+
                                     <div class="col-span-12 sm:col-span-12">
                                         <label for="exampleFormControlFile1">Announcement Duration :</label>
                                         <input type="text" name="duration" class="input w-full" id="exampleFormControlFile1" value="{{$data->duration}}" readonly>
@@ -256,7 +256,7 @@ Announcement
                                     </div>
                                 </div>
                                 <div class="px-5 py-3 text-right border-t border-gray-200 dark:border-dark-5">
-                                    <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancel</button>                                      
+                                    <button type="button" data-dismiss="modal" class="button w-20 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancel</button>
                                 </div>
                             </div>
                         </div>

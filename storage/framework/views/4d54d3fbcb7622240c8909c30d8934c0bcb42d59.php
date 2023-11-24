@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title'); ?>
 Announcement
 <?php $__env->stopSection(); ?>
@@ -13,6 +11,10 @@ Announcement
   overflow: hidden;
   /* white-space: nowrap; */
   text-overflow: ellipsis;
+  text-align: justify;
+  text-justify: inter-character;
+  font-size:20;
+  text-indent: 20px;
 }
 .header{
       text-align: center;
@@ -21,7 +23,7 @@ Announcement
     display:flex;
     align-items:center;
     justify-content: center;
-    
+
 }
 .header img{
     float:left;
@@ -65,7 +67,7 @@ Announcement
 <?php endif; ?>
 
 <div class="col-span-12">
-    <div class="grid grid-cols-12 gap-12  mt-5">   
+    <div class="grid grid-cols-12 gap-12  mt-5">
         <?php $__empty_1 = true; $__currentLoopData = $announcement; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                 <div class="col-span-6 xl:col-span-6 intro-y">
                     <div class="report-box zoom-in">
@@ -84,12 +86,12 @@ Announcement
 
                             </h1>
                             <div class="p-5">
-                                
+
                                 <div class="mb-4">
                                     <span class="text-black" style="font-size:20; "><strong>Date:</strong> <?php echo e($data->date); ?></span>
                                 </div>
                                 <div class="mb-4">
-                                  
+
                                     <span class="text-black" style="font-size:20; "><strong>Time:</strong> <?php echo e($data->time); ?></span>
                                 </div>
 
@@ -100,8 +102,8 @@ Announcement
                                 <?php endif; ?>
 
                                 <p class="text-black mb-4"style="font-size:20; " >Dear Residents,</p>
-                                <p class="text-black mb-4" id="content" style="font-size:20; text-indent: 20px;">
-                                <?php echo e($data->content); ?>
+                                <p class="text-black mb-4" id="content">
+                                     <?php echo e($data->content); ?>
 
                                 </p>
                                 <p class="text-black" style="font-size:20;">
@@ -115,16 +117,16 @@ Announcement
                     </div>
                 </div>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-        
-          
+
+
         <div class="flex items-center justify-center" style="margin:auto 400px;">
             <div>
                 <p class="text-black" style="color: red; font-size:80px; text-align:center">NO ANNOUNCEMENT</p>
             </div>
          </div>
-          
-            
-      
+
+
+
         <?php endif; ?>
     </div>
 </div>

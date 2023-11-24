@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title'); ?>
 All Requests
 <?php $__env->stopSection(); ?>
@@ -109,8 +107,7 @@ All Requests
                     </td>
 
                     <td class="w-40">
-                        <div class="flex">
-
+                        <div class="flex"  style=" max-width: 100px;  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                             <?php echo e($data->user->house_block_lot); ?> <?php echo e($data->user->street); ?> <?php echo e($data->user->subdivision); ?> <?php echo e($data->user->barangay); ?> <?php echo e($data->user->municipality); ?> <?php echo e($data->user->province); ?>
 
                         </div>

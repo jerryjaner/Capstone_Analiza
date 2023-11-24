@@ -130,7 +130,7 @@ class SellController extends Controller
                 $query->whereBetween('created_at', [$startDate, $endDate]);
             }
 
-            $summary_report = $query->paginate(5);
+            $summary_report = $query->paginate(10);
             $assignedAssets = AssignedTransactionAsset::get();
 
             return view('pages.admin.report.summary', [

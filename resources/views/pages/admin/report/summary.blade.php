@@ -11,6 +11,10 @@ Summary Report
 @push('custom-links')
 
 <style>
+    .button{
+
+        justify-content: center !important;
+    }
 
 
     @media print {
@@ -70,19 +74,18 @@ Summary Report
     <div class="md:block mx-auto text-gray-600 intro-y col-span-12 flex flex-wrap sm:flex-no-wrap items-center mt-2">
         <form method="GET" class="p-5 grid grid-cols-12 gap-4 row-gap-1">
             <div class="col-span-12 sm:col-span-3">
-                <input type="text" class="input" name="daterange" id="daterange" />
+                <input type="text" class="input" name="daterange" id="daterange"  style="padding:11px;"/>
             </div>
             <div class="col-span-6 sm:col-span-3">
                 <button type="submit" class="button rounded-md p-3 w-full  mx-auto text-white bg-theme-1 hover:bg-blue-400 flex"><i data-feather="calendar" class="mr-5"></i>Filter by Date</button>
             </div>
-            <div class="col-span-6 sm:col-span-3 text-center">
-                <a href="{{ route('sell.summary') }}" class="button button--lg text-white text-center bg-theme-9 hover:bg-green-400 flex"><i data-feather="refresh-cw" class="mr-5"></i>Refresh</a>
+            <div class="col-span-6 sm:col-span-3">
+                <a href="{{ route('sell.summary') }}" class="button button--lg w-full mx-auto text-white text-center bg-theme-9 hover:bg-green-700 flex"><i data-feather="refresh-cw" class="mr-5"></i>Refresh Filter</a>
             </div>
             <div class="col-span-6 sm:col-span-3">
-                <button   onclick="printDiv('contentToPrint')" type="button" class="button bg-theme-1 flex items-center w-20 border text-white dark:border-dark-5 dark:text-white" style="background-color: green; "><i data-feather="printer"></i> Print</button>
+                <button onclick="printDiv('contentToPrint')"  class="button rounded-md p-3 w-full mx-auto text-white bg-theme-7 hover:bg-blue-400 flex"><i data-feather="printer" class="mr-5"></i>Print Report</button>
             </div>
         </form>
-
     </div>
 </div>
 {{-- <div class="col-span-12 lg:col-span-6">
@@ -111,26 +114,32 @@ Summary Report
 
 
 <div class="col-span-12 lg:col-span-6" id="contentToPrint">
+
     <h1 class="intro-y text-xl font-medium mr-5 text-center mt-10" id="report_header">Bulan Water District Summary Report</h1>
     <div class="intro-y overflow-auto xxxl:overflow-visible">
     <table class="table table-report sm:mt-2" >
             <thead>
+
                 <tr>
                     <th class="bg-theme-1 text-xs text-white" style="border-top-left-radius: 20px;" id="header">Customer Name</th>
                     <th class="bg-theme-1 text-xs text-white" id="header">Request Number</th>
                     <th class="bg-theme-1 text-xs text-white" id="header">Requested Service</th>
                     <th class="bg-theme-1 text-xs text-white" id="header">Date</th>
-                    {{-- <th class="bg-theme-1 text-xs text-white">Address</th>
-                    <th class="bg-theme-1 text-xs text-white">Technician</th> --}}
-                    {{-- <th class="bg-theme-1 text-xs text-white">Assigned Date</th> --}}
-                    {{-- <th class="bg-theme-1 text-xs text-white">Status</th>
-                    <th class="bg-theme-1 text-xs text-white">Priority Status</th> --}}
                     <th class="bg-theme-1 text-xs text-white" id="header">Total Amount</th>
                     <th class="bg-theme-1 text-xs text-white action hidden" style="border-top-right-radius: 20px;">Action</th>
                 </tr>
             </thead>
             <tbody>
+
                 @forelse($summary_report as $data)
+                    @php
+                        $sum = 0;
+                        foreach ($assignedAssets as $asset) {
+                            if ($asset->service_request_id === $data->id) {
+                                $sum += $asset->total_price_amount + $asset->total_cost_lbc;
+                            }
+                        }
+                    @endphp
                 <tr>
                     <td class="w-40">
                         <div class="flex">
@@ -155,74 +164,6 @@ Summary Report
                             {{Carbon\Carbon::parse($data->created_at)->format('M d, Y') ?? 'N/A'}}
                         </div>
                     </td>
-
-                    {{-- <td class="w-40">
-                        <div class="flex" style=" max-width: 200px;  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                            {{$data->user->house_block_lot}} {{$data->user->street}} {{$data->user->subdivision}} {{$data->user->barangay}} {{$data->user->municipality}} {{$data->user->province}}
-                        </div>
-                    </td>
-
-
-                    <td class="w-40">
-                        <div class="flex">
-                            {{$data->technician->name ?? 'N/A'}}
-                        </div>
-                    </td> --}}
-
-                    {{-- <td class="w-40">
-                        <div class="flex">
-                            {{\Carbon\Carbon::parse($data->date_assigned)->format('M d, Y') ?? 'N/A'}}
-                        </div>
-                    </td> --}}
-
-                    {{-- <td class="w-40">
-                        @if($data->status != 'Cancelled')
-                        <div class="flex {{($data->status == 'Pending')? 'text-red-500' : ($data->status == 'Inprocess' ? 'text-orange-500' : 'text-green-500')}}">
-                            {{$data->status ?? 'N/A'}}
-                        </div>
-                        @else
-                        <div class="flex">
-                            {{$data->status ?? 'N/A'}}
-                        </div>
-                        @endif
-                    </td>
-                    <td class="w-40">
-                        @if ($data->priority == 'Low')
-
-                            <div class="flex" style="color: green">
-                                {{$data->priority ?? 'N/A'}}
-                            </div>
-
-                        @elseif ($data->priority == 'Medium')
-
-                            <div class="flex" style="color: orange">
-                                {{$data->priority ?? 'N/A'}}
-                            </div>
-
-                        @elseif ($data->priority == 'Completed')
-
-                            <div class="flex" style="color: red">
-                                {{$data->priority ?? 'N/A'}}
-                            </div>
-
-                        @else
-
-                            <div class="flex">
-                                {{$data->priority ?? 'N/A'}}
-                            </div>
-
-
-                        @endif
-
-                    </td> --}}
-                    @php
-                        $sum = 0;
-                        foreach ($assignedAssets as $asset) {
-                            if ($asset->service_request_id === $data->id) {
-                                $sum += $asset->total_price_amount + $asset->total_cost_lbc;
-                            }
-                        }
-                    @endphp
                     <td class="w-40">
                         <div class="flex">
                               <b> {{$sum}} </b>
@@ -237,7 +178,6 @@ Summary Report
                                 class="view-dialog rounded-md p-1 w-35 text-white bg-theme-1 hover:bg-blue-400 xl:mr-3 flex">
                                 <i data-feather="eye"></i>
                             </a>
-
                         </div>
                     </td>
                 </tr>
@@ -249,7 +189,7 @@ Summary Report
             </tbody>
         </table>
         @if($pagination <> false)
-        {!! $summary_report->links() !!}
+             {!! $summary_report->links() !!}
         @endif
 
     </div>
