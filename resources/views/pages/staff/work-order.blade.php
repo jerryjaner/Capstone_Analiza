@@ -156,7 +156,7 @@ Work Order
                                 {{$data->priority ?? 'N/A'}}
                             </div>
 
-                        @elseif ($data->priority == 'Completed')
+                        @elseif ($data->priority == 'High')
 
                             <div class="flex" style="color: red">
                                 {{$data->priority ?? 'N/A'}}

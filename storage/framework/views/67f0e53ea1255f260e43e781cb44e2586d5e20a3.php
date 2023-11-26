@@ -169,7 +169,7 @@ Work Order
 
                             </div>
 
-                        <?php elseif($data->priority == 'Completed'): ?>
+                        <?php elseif($data->priority == 'High'): ?>
 
                             <div class="flex" style="color: red">
                                 <?php echo e($data->priority ?? 'N/A'); ?>
