@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title'); ?>
 Work Order
 <?php $__env->stopSection(); ?>
@@ -37,7 +35,7 @@ Work Order
                     <th class="bg-theme-1 text-xs text-white">Address</th>
                     <th class="bg-theme-1 text-xs text-white">Landmark</th>
                     <th class="bg-theme-1 text-xs text-white">Mobile</th>
-                    <th class="bg-theme-1 text-xs text-white">Technician</th>
+                    <th class="bg-theme-1 text-xs text-white">Plumber</th>
                     <th class="bg-theme-1 text-xs text-white">Assigned Date</th>
                     <th class="bg-theme-1 text-xs text-white" style="border-top-right-radius: 20px;">Action</th>
                 </tr>
@@ -186,7 +184,7 @@ Work Order
                                     <label>Concerns</label>
                                     <textarea class="input w-full mt-2 flex-1 border" id="" cols="30" rows="5" readonly><?php echo e($data->concern ?? 'N/A'); ?></textarea>
                                 </div>
-                                <div class="col-span-12 sm:col-span-8"> <label>Assign Technician</label>
+                                <div class="col-span-12 sm:col-span-8"> <label>Assign Plumber</label>
                                     <select  required="" name="technician" class="input w-full border mt-2 flex-1 <?php $__errorArgs = ['technician'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -197,7 +195,7 @@ endif;
 unset($__errorArgs, $__bag); ?>">
                                         <option value="">--Select--</option>
                                         <?php $__currentLoopData = $user_technician; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $newTechnician): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($newTechnician->id); ?>"><?php echo e($newTechnician->name); ?></option>
+                                            <option value="<?php echo e($newTechnician->id); ?>"><?php echo e($newTechnician->name); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>

@@ -3,7 +3,7 @@
 <div class="modal" id="view">
     <div class="modal__content modal__content--xl p-10">
         <div class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200 dark:border-dark-5">
-            <h2 class="font-medium text-base mr-auto">Technician Information</h2>
+            <h2 class="font-medium text-base mr-auto">Plumber Information</h2>
         </div>
         <div class="p-5 grid grid-cols-12 gap-4 row-gap-3">
             <div class="col-span-12 sm:col-span-12 mx-auto mb-2"><a id="linkImage" target="_blank"><img id="image" width="200" class="mr-3" alt="" srcset=""></a></div>
@@ -25,7 +25,7 @@
 <div class="modal" id="add">
     <div class="modal__content modal__content--xl p-5">
         <div class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200 dark:border-dark-5">
-            <h2 class="font-medium text-base mr-auto">Add New Technician</h2>
+            <h2 class="font-medium text-base mr-auto">Add New Plumber</h2>
         </div>
         <form action="{{route('technician.store')}}" name="addForm" method="post" enctype="multipart/form-data">
             @csrf
@@ -122,7 +122,7 @@
 <div class="modal" id="edit">
     <div class="modal__content modal__content--xl p-5">
         <div class="flex items-center px-5 py-5 sm:py-3 border-b border-gray-200 dark:border-dark-5">
-            <h2 class="font-medium text-base mr-auto">Edit Technician Information</h2>
+            <h2 class="font-medium text-base mr-auto">Edit Plumber Information</h2>
             <p id="gen_emp"></p>
         </div>
         <form action="{{route('technician.update')}}" name="editForm" method="post" enctype="multipart/form-data">

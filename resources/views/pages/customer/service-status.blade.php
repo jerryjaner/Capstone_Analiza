@@ -69,7 +69,7 @@ Service Status
                     <th class="bg-theme-1 text-xs text-white">Address</th>
                     <th class="bg-theme-1 text-xs text-white">Landmark</th>
                     <th class="bg-theme-1 text-xs text-white">Mobile</th>
-                    <th class="bg-theme-1 text-xs text-white">Technician</th>
+                    <th class="bg-theme-1 text-xs text-white">Plumber</th>
                     <th class="bg-theme-1 text-xs text-white">Assigned Date</th>
                     <th class="bg-theme-1 text-xs text-white">Status</th>
                     <th class="bg-theme-1 text-xs text-white" style="border-top-right-radius: 20px;">Action</th>

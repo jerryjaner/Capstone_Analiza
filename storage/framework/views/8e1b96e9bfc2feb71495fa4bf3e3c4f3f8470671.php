@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title'); ?>
 Request Log
 <?php $__env->stopSection(); ?>
@@ -149,8 +147,8 @@ Request History Log
                                     <textarea class="input w-full mt-2 flex-1 border" id="" cols="30" rows="5" readonly><?php echo e($data->concern ?? 'N/A'); ?></textarea>
                                 </div>
                                 <div class="col-span-12">
-                                    <label>Technician</label>
-                                    <input type="text" class="input w-full border mt-2 flex-1" value="<?php echo e($data->technician->name ?? 'Waiting for technician assigned'); ?>" readonly>
+                                    <label>Plumber</label>
+                                    <input type="text" class="input w-full border mt-2 flex-1" value="<?php echo e($data->technician->name ?? 'Waiting for plumber assigned'); ?>" readonly>
                                 </div>
                             </div>
                             <div class="px-5 py-3 text-right border-t border-gray-200 dark:border-dark-5">

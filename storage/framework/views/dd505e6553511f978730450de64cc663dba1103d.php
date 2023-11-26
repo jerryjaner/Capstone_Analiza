@@ -216,7 +216,7 @@ Assigned Work Order
                                     <textarea class="input w-full mt-2 flex-1 border" id="" cols="30" rows="5" readonly><?php echo e($data->concern ?? 'N/A'); ?></textarea>
                                 </div>
                                 <div class="col-span-12">
-                                    <label>Assign Technician</label>
+                                    <label>Assign Plumber</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="<?php echo e($data->technician->name ?? 'N/A'); ?>" readonly>
                                 </div>
                                 <div class="col-span-12 sm:col-span-8">
@@ -291,7 +291,7 @@ Assigned Work Order
                                     <textarea class="input w-full mt-2 flex-1 border" id="" cols="30" rows="5" readonly><?php echo e($data->concern ?? 'N/A'); ?></textarea>
                                 </div>
                                 <div class="col-span-12">
-                                    <label>Assign Technician</label>
+                                    <label>Assign Plumber</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="<?php echo e($data->technician->name ?? 'N/A'); ?>" readonly>
                                 </div>
                                 <div class="col-span-12 sm:col-span-8">
@@ -467,7 +467,7 @@ unset($__errorArgs, $__bag); ?>">
                                     <textarea class="input w-full mt-2 flex-1 border" id="" cols="30" rows="5" readonly><?php echo e($data->concern ?? 'N/A'); ?></textarea>
                                 </div>
                                 <div class="col-span-12">
-                                    <label>Assign Technician</label>
+                                    <label>Assign Plumber</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="<?php echo e($data->technician->name ?? 'N/A'); ?>" readonly>
                                 </div>
                                 <div class="col-span-12 sm:col-span-8">
@@ -542,7 +542,7 @@ unset($__errorArgs, $__bag); ?>">
                                     <textarea class="input w-full mt-2 flex-1 border" id="" cols="30" rows="5" readonly><?php echo e($data->concern ?? 'N/A'); ?></textarea>
                                 </div>
                                 <div class="col-span-12">
-                                    <label>Assign Technician</label>
+                                    <label>Assign Plumber</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="<?php echo e($data->technician->name ?? 'N/A'); ?>" readonly>
                                 </div>
                                 <div class="col-span-12 sm:col-span-8">
@@ -717,7 +717,7 @@ unset($__errorArgs, $__bag); ?>">
                                     <textarea class="input w-full mt-2 flex-1 border" id="" cols="30" rows="5" readonly><?php echo e($data->concern ?? 'N/A'); ?></textarea>
                                 </div>
                                 <div class="col-span-12">
-                                    <label>Assign Technician</label>
+                                    <label>Assign Plumber</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="<?php echo e($data->technician->name ?? 'N/A'); ?>" readonly>
                                 </div>
                                 <div class="col-span-12 sm:col-span-8">
@@ -792,7 +792,7 @@ unset($__errorArgs, $__bag); ?>">
                                     <textarea class="input w-full mt-2 flex-1 border" id="" cols="30" rows="5" readonly><?php echo e($data->concern ?? 'N/A'); ?></textarea>
                                 </div>
                                 <div class="col-span-12">
-                                    <label>Assign Technician</label>
+                                    <label>Assign Plumber</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="<?php echo e($data->technician->name ?? 'N/A'); ?>" readonly>
                                 </div>
                                 <div class="col-span-12 sm:col-span-8">
@@ -965,7 +965,7 @@ unset($__errorArgs, $__bag); ?>">
                                     <textarea class="input w-full mt-2 flex-1 border" id="" cols="30" rows="5" readonly><?php echo e($data->concern ?? 'N/A'); ?></textarea>
                                 </div>
                                 <div class="col-span-12">
-                                    <label>Assign Technician</label>
+                                    <label>Assign Plumber</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="<?php echo e($data->technician->name ?? 'N/A'); ?>" readonly>
                                 </div>
                                 <div class="col-span-12 sm:col-span-8">
@@ -1040,7 +1040,7 @@ unset($__errorArgs, $__bag); ?>">
                                     <textarea class="input w-full mt-2 flex-1 border" id="" cols="30" rows="5" readonly><?php echo e($data->concern ?? 'N/A'); ?></textarea>
                                 </div>
                                 <div class="col-span-12">
-                                    <label>Assign Technician</label>
+                                    <label>Assign Plumber</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="<?php echo e($data->technician->name ?? 'N/A'); ?>" readonly>
                                 </div>
                                 <div class="col-span-12 sm:col-span-8">

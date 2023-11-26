@@ -226,19 +226,22 @@ Assets
                     <tr>
 
                         <td>
-
                             <b>Name: </b>{{$data->user->name}}<br>
                             <b>Date: </b>{{$data->date_assigned}}<br>
                             <b>Address: </b>{{$data->user->house_block_lot}} {{$data->user->street}} {{$data->user->subdivision}} {{$data->user->barangay}} {{$data->user->municipality}} {{$data->user->province}}<br>
                             <b>Account No: </b>{{$data->account_no}}<br>
-
-                        </td>
-                         <td colspan="2">
                             <b> Request No:  </b>{{$data->req_no}} <br>
-                            <b> Technician Assigned:  </b>{{$data->technician->name}} <br>
+                            <b> Plumber Assigned:  </b>{{$data->technician->name}} <br>
                             <b> Service:  </b>{{$data->service->name}} <br>
                             <b> Service Description:  </b>{{$data->service->description}} <br>
                         </td>
+                        {{-- <td colspan="2">
+                            <b> Request No:  </b>{{$data->req_no}} <br>
+                            <b> Plumber Assigned:  </b>{{$data->technician->name}} <br>
+                            <b> Service:  </b>{{$data->service->name}} <br>
+                            <b> Service Description:  </b>{{$data->service->description}} <br>
+                        </td> --}}
+
                     </tr>
 
                     @endforeach

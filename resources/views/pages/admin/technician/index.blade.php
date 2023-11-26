@@ -1,17 +1,17 @@
 @extends('../../layouts.admin')
 
 @section('title')
-Technician List
+Plumber List
 @endsection
 
 @section('breadcrumbs')
-Technician
+Plumber
 @endsection
 
 @section('content')
 <div class="grid grid-cols-12 gap-6 mt-5">
     <div class="intro-y col-span-12 flex flex-wrap sm:flex-no-wrap items-center mt-2">
-    <h2 class="intro-y text-lg font-medium mr-5 text-center">Technician Management</h2>
+    <h2 class="intro-y text-lg font-medium mr-5 text-center">Plumber Management</h2>
         <div class="intro-x text-center xl:text-left">
             <a href="javascript:;" data-toggle="modal" data-target="#add" class="rounded-full p-2 w-full text-white text-center hover:bg-blue-400 bg-theme-1 xl:mr-3 flex"><i data-feather="plus"></i><i data-feather="users"></i></a>
         </div>

@@ -87,7 +87,7 @@ class TechnicianController extends Controller
             'dob' => Carbon::parse($validated['dob'])->format('Y-m-d'),
         ]);
 
-        return redirect()->back()->with('message', 'technician Successfully Saved!');
+        return redirect()->back()->with('message', 'Plumber Successfully Saved!');
     }
 
     public function update(Request $request)
@@ -115,7 +115,7 @@ class TechnicianController extends Controller
             'dob' => Carbon::parse($validated['dob'])->format('Y-m-d'),
         ]);
 
-        return redirect()->back()->with('message', 'Technician Successfully Saved!');
+        return redirect()->back()->with('message', 'Plumber Successfully Saved!');
     }
 
     public function destroy(Request $request)
@@ -129,6 +129,6 @@ class TechnicianController extends Controller
             }
             $user->delete();
         }
-        return redirect()->back()->with('err', 'Technician Successfully Deleted!');
+        return redirect()->back()->with('err', 'Plumber Successfully Deleted!');
     }
 }

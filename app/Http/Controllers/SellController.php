@@ -121,6 +121,9 @@ class SellController extends Controller
             $pagination = true;
             $query = ServiceRequest::with(['service', 'technician','AssignedTransactionAsset']);
 
+            $query1 = ServiceRequest::join('assigned_transaction_assets', 'service_requests.id', '=', 'assigned_transaction_assets.service_request_id')
+                                 ->selectRaw('sum(assigned_transaction_assets.total_cost_lbc + assigned_transaction_assets.total_price_amount) as total_amount');
+
             if ($request->filled('daterange')) {
                 list($startDate, $endDate) = explode(' - ', $request->input('daterange'));
 
@@ -128,7 +131,10 @@ class SellController extends Controller
                 $endDate = date('Y-m-d', strtotime($endDate));
 
                 $query->whereBetween('created_at', [$startDate, $endDate]);
+                $query1->whereBetween('service_requests.created_at', [$startDate, $endDate]);
             }
+
+            $total_amount = $query1->value('total_amount');
 
             $summary_report = $query->paginate(10);
             $assignedAssets = AssignedTransactionAsset::get();
@@ -136,7 +142,8 @@ class SellController extends Controller
             return view('pages.admin.report.summary', [
                 'summary_report' => $summary_report,
                 'assignedAssets' => $assignedAssets,
-                'pagination' => $pagination
+                'pagination' => $pagination,
+                'total_amount' => $total_amount
             ]);
         }
 

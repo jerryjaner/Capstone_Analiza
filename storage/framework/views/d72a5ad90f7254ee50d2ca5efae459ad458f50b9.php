@@ -36,7 +36,7 @@ Summary Report
             text-align: left !important;
             padding: 16px !important;
             border: 1px solid #020202 !important;
-
+            /* width: 50% !important; */
         }
 
         th {
@@ -47,6 +47,10 @@ Summary Report
 
         tr:nth-child(even) {
             background-color: #f2f2f2 !important;
+        }
+        .total_amount{
+
+            text-align: center !important;
         }
     }
 </style>
@@ -81,7 +85,7 @@ Summary Report
 
     <h1 class="intro-y text-xl font-medium mr-5 text-center mt-10" id="report_header">Bulan Water District Summary Report</h1>
     <div class="intro-y overflow-auto xxxl:overflow-visible">
-    <table class="table table-report sm:mt-2" >
+        <table class="table table-report sm:mt-2" >
             <thead>
 
                 <tr>
@@ -149,11 +153,18 @@ Summary Report
                         </div>
                     </td>
                 </tr>
+
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                 <tr>
                     <td colspan="12" class="text-center text-red-500">No Data Found!</td>
                 </tr>
                <?php endif; ?>
+               <?php if(!empty($total_amount) && $total_amount != 0): ?>
+                    <tr>
+                        <td colspan="12" class="text-center text-red-500 total_amount">Total Amount: <?php echo e($total_amount); ?></td>
+                    </tr>
+                <?php endif; ?>
+
             </tbody>
         </table>
         <?php if($pagination <> false): ?>

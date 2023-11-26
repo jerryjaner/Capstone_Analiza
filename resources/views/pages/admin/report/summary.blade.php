@@ -38,7 +38,7 @@ Summary Report
             text-align: left !important;
             padding: 16px !important;
             border: 1px solid #020202 !important;
-
+            /* width: 50% !important; */
         }
 
         th {
@@ -49,6 +49,10 @@ Summary Report
 
         tr:nth-child(even) {
             background-color: #f2f2f2 !important;
+        }
+        .total_amount{
+
+            text-align: center !important;
         }
     }
 </style>
@@ -64,9 +68,9 @@ Summary Report
         <div class="hidden md:block mx-auto text-gray-600"></div>
 
         <form method="GET">
-        <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
+            <div class="w-full sm:w-auto mt-3 sm:mt-0 sm:ml-auto md:ml-0">
 
-        </div>
+            </div>
         </form>
 
     </div> --}}
@@ -117,7 +121,7 @@ Summary Report
 
     <h1 class="intro-y text-xl font-medium mr-5 text-center mt-10" id="report_header">Bulan Water District Summary Report</h1>
     <div class="intro-y overflow-auto xxxl:overflow-visible">
-    <table class="table table-report sm:mt-2" >
+        <table class="table table-report sm:mt-2" >
             <thead>
 
                 <tr>
@@ -181,11 +185,18 @@ Summary Report
                         </div>
                     </td>
                 </tr>
+
                 @empty
                 <tr>
                     <td colspan="12" class="text-center text-red-500">No Data Found!</td>
                 </tr>
                @endforelse
+               @if (!empty($total_amount) && $total_amount != 0)
+                    <tr>
+                        <td colspan="12" class="text-center text-red-500 total_amount">Total Amount: {{ $total_amount }}</td>
+                    </tr>
+                @endif
+
             </tbody>
         </table>
         @if($pagination <> false)

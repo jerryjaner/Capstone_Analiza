@@ -96,9 +96,9 @@ Announcement
                                 </div>
 
                                 <?php if($data->duration > 0): ?>
-                                <div class="mb-4">
-                                    <span class="text-black" style="font-size:20;"><strong>Duration:</strong> <?php echo e($data->duration); ?></span>
-                                </div>
+                                    <div class="mb-4">
+                                        <span class="text-black" style="font-size:20;"><strong>Duration:</strong> <?php echo e($data->duration); ?></span>
+                                    </div>
                                 <?php endif; ?>
 
                                 <p class="text-black mb-4"style="font-size:20; " >Dear Residents,</p>

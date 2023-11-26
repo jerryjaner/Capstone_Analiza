@@ -24,7 +24,7 @@
         <li>
             <a href="<?php echo e(route('technician.index')); ?>" class="side-menu <?php echo e((!request()->routeIs('technician.index'))?'bg-theme-1':'bg-blue-500'); ?>">
                 <div class="side-menu__icon"> <i data-feather="users"></i> </div>
-                <div class="side-menu__title"> Technician </div>
+                <div class="side-menu__title"> Plumber </div>
             </a>
         </li>
         <li>

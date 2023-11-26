@@ -34,7 +34,7 @@ Dashboard
                         <i data-feather="users" class="text-theme-11"></i>
                     </div>
                     <div class="text-3xl font-bold leading-8 mt-6">{{$count_technician}}</div>
-                    <div class="text-base text-gray-600 mt-1">No. of Technician</div>
+                    <div class="text-base text-gray-600 mt-1">No. of Plumber</div>
                 </div>
             </div>
         </div>

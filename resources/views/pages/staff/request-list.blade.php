@@ -37,7 +37,7 @@ Work Order
                     <th class="bg-theme-1 text-xs text-white">Address</th>
                     <th class="bg-theme-1 text-xs text-white">Landmark</th>
                     <th class="bg-theme-1 text-xs text-white">Mobile</th>
-                    <th class="bg-theme-1 text-xs text-white">Technician</th>
+                    <th class="bg-theme-1 text-xs text-white">Plumber</th>
                     <th class="bg-theme-1 text-xs text-white">Assigned Date</th>
                     <th class="bg-theme-1 text-xs text-white" style="border-top-right-radius: 20px;">Action</th>
                 </tr>
@@ -182,11 +182,11 @@ Work Order
                                     <label>Concerns</label>
                                     <textarea class="input w-full mt-2 flex-1 border" id="" cols="30" rows="5" readonly>{{$data->concern ?? 'N/A'}}</textarea>
                                 </div>
-                                <div class="col-span-12 sm:col-span-8"> <label>Assign Technician</label>
+                                <div class="col-span-12 sm:col-span-8"> <label>Assign Plumber</label>
                                     <select  required="" name="technician" class="input w-full border mt-2 flex-1 @error('technician') border-theme-6 @enderror">
                                         <option value="">--Select--</option>
                                         @foreach($user_technician as $newTechnician)
-                                        <option value="{{$newTechnician->id}}">{{$newTechnician->name}}</option>
+                                            <option value="{{$newTechnician->id}}">{{$newTechnician->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

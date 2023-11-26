@@ -68,7 +68,7 @@ All Requests
                     <th class="bg-theme-1 text-xs text-white">Address</th>
                     <th class="bg-theme-1 text-xs text-white">Landmark</th>
                     <th class="bg-theme-1 text-xs text-white">Mobile</th>
-                    <th class="bg-theme-1 text-xs text-white">Technician</th>
+                    <th class="bg-theme-1 text-xs text-white">Plumber</th>
                     <th class="bg-theme-1 text-xs text-white">Assigned Date</th>
                     <th class="bg-theme-1 text-xs text-white">Status</th>
                     <th class="bg-theme-1 text-xs text-white">Priority Status</th>
@@ -232,7 +232,7 @@ All Requests
                                     <textarea class="input w-full mt-2 flex-1 border" id="" cols="30" rows="5" readonly>{{$data->concern ?? 'N/A'}}</textarea>
                                 </div>
                                 <div class="col-span-12">
-                                    <label>Assign Technician</label>
+                                    <label>Assign Plumber</label>
                                     <input type="text" class="input w-full border mt-2 flex-1" value="{{$data->technician->name ?? 'N/A'}}" readonly>
                                 </div>
                                 <div class="col-span-12 sm:col-span-8">

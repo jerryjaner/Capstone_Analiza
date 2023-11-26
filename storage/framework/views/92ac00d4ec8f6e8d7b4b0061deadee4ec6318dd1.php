@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title'); ?>
 Assets
 <?php $__env->stopSection(); ?>
@@ -228,19 +226,17 @@ Assets
                     <tr>
 
                         <td>
-
                             <b>Name: </b><?php echo e($data->user->name); ?><br>
                             <b>Date: </b><?php echo e($data->date_assigned); ?><br>
                             <b>Address: </b><?php echo e($data->user->house_block_lot); ?> <?php echo e($data->user->street); ?> <?php echo e($data->user->subdivision); ?> <?php echo e($data->user->barangay); ?> <?php echo e($data->user->municipality); ?> <?php echo e($data->user->province); ?><br>
                             <b>Account No: </b><?php echo e($data->account_no); ?><br>
-
-                        </td>
-                         <td colspan="2">
                             <b> Request No:  </b><?php echo e($data->req_no); ?> <br>
-                            <b> Technician Assigned:  </b><?php echo e($data->technician->name); ?> <br>
+                            <b> Plumber Assigned:  </b><?php echo e($data->technician->name); ?> <br>
                             <b> Service:  </b><?php echo e($data->service->name); ?> <br>
                             <b> Service Description:  </b><?php echo e($data->service->description); ?> <br>
                         </td>
+                        
+
                     </tr>
 
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
