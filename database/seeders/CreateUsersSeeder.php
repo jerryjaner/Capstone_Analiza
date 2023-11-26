@@ -45,10 +45,10 @@ class CreateUsersSeeder extends Seeder
                 'password'=> bcrypt('123456'),
              ],
              [
-                'name'=>'Techinician',
-                'address'=>'Techinician Address',
+                'name'=>'Plumber',
+                'address'=>'Plumber Address',
                 'cp'=>'12345678919',
-                'email'=>'technician@example.com',
+                'email'=>'plumber@example.com',
                  'role'=>'2',
                  'verification' => '1',
                  'is_Online' => '1',
