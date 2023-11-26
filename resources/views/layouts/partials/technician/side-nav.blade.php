@@ -19,7 +19,7 @@
             </a>
         </li>
         <li>
-            <a href="{{route('assigned.index')}}" class="side-menu">
+            <a href="{{route('assigned.index')}}" class="side-menu {{(!request()->routeIs('assigned.index'))?'bg-theme-1':'bg-blue-500'}}">
                 <div class="side-menu__icon"> <i data-feather="clipboard"></i> </div>
                 <div class="side-menu__title"> Assigned Request </div>
 
@@ -40,7 +40,7 @@
             </a>
         </li>
         <li>
-            <a href="{{route('profile.show_changepw')}}" class="side-menu">
+            <a href="{{route('profile.tech_show_changepw')}}"  class="side-menu {{(!request()->routeIs('profile.tech_show_changepw'))?'bg-theme-1':'bg-blue-500'}}">
                 <div class="side-menu__icon"> <i data-feather="key"></i> </div>
                 <div class="side-menu__title"> Change Password </div>
             </a>

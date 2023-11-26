@@ -6,8 +6,8 @@
                                          ->count();
 
     $announcement = \App\Models\Announcement::whereDate('created_at', Carbon::today())->count();
-  
-   
+
+
 ?>
 <nav class="side-nav">
     <a href="" class="intro-x flex items-center pl-5 pt-4">
@@ -16,7 +16,7 @@
     </a>
     <div class="side-nav__devider my-6"></div>
     <ul>
-       
+
         <li>
             <a href="<?php echo e(url('home')); ?>" class="side-menu <?php echo e((!request()->routeIs('home'))?'bg-theme-1':'bg-blue-500'); ?>">
                 <div class="side-menu__icon"> <i data-feather="user"></i> </div>
@@ -31,7 +31,7 @@
                 <?php if($announcement > 0): ?>
                    <span class="badge right" style="background-color:yellow; padding:3px 10px; border-radius:10%; margin-right:10px;    color:black;" title="New Announcement"><?php echo e($announcement); ?></span>
                 <?php endif; ?>
-             
+
             </a>
         </li>
         <li>

@@ -1,11 +1,11 @@
 @extends('../layouts.technician')
 
 @section('title')
-Request Log
+Change Password
 @endsection
 
 @section('breadcrumbs')
-Request History Log
+Change Password
 @endsection
 
 @section('content')
@@ -21,7 +21,7 @@ Request History Log
     <div class="grid grid-cols-12 gap-6">
     <div class="col-span-12 lg:col-span-8 xxl:col-span-8">
         <div class="intro-y box lg:mt-5">
-            
+
             @if (session()->has('error'))
             <div id="alert-border-3" class="flex items-center p-4 mt-4 text-orange-800 border-t-4 border-orange-300 bg-orange-50 dark:text-orange-400 dark:bg-gray-800 dark:border-orange-800" role="alert">
                 <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -56,7 +56,7 @@ Request History Log
         </div>
     </div>
     </div>
-    
+
 </form>
 
 

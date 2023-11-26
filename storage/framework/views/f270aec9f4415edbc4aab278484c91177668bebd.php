@@ -68,7 +68,7 @@
             </a>
         </li>
         <li>
-            <a href="<?php echo e(route('profile.show_changepw')); ?>" class="side-menu">
+            <a href="<?php echo e(route('profile.staff_show_changepw')); ?>" class="side-menu <?php echo e((!request()->routeIs('profile.staff_show_changepw'))?'bg-theme-1':'bg-blue-500'); ?>">
                 <div class="side-menu__icon"> <i data-feather="key"></i> </div>
                 <div class="side-menu__title"> Change Password </div>
             </a>

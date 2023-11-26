@@ -15,15 +15,15 @@ Sell Report List
         <h2 class="intro-y text-lg font-medium mr-5 text-center">Sales Materials and Installation Fee - <b>Request No. : </b><u> {{$req_info->req_no}}</u></h2>
         <div class="hidden md:block mx-auto text-gray-600"></div>
         <form method="GET">
-        <div class="w-full sm:w-auto sm:mt-0 sm:ml-auto md:ml-0">
-            <div class="w-full xl:w-56 relative text-gray-700 dark:text-gray-300">
-                <input type="text" name="search" value="{{ request()->get('search') }}" class="input w-full xl:w-56 box pr-10 placeholder-theme-13" style="padding:10px; border-radius: 20px;" placeholder="Search...">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg> 
+            <div class="w-full sm:w-auto sm:mt-0 sm:ml-auto md:ml-0">
+                <div class="w-full xl:w-56 relative text-gray-700 dark:text-gray-300">
+                    <input type="text" name="search" value="{{ request()->get('search') }}" class="input w-full xl:w-56 box pr-10 placeholder-theme-13" style="padding:10px; border-radius: 20px;" placeholder="Search...">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search w-4 h-4 absolute my-auto inset-y-0 mr-3 right-0"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
             </div>
-        </div>
         </form>
     </div>
-   
+
 </div>
 
 @if (session()->has('success'))
@@ -44,7 +44,7 @@ Sell Report List
 @endif
 <div class="col-span-12 lg:col-span-6">
     <div class="intro-y overflow-auto xxxl:overflow-visible sm:mt-8">
-    
+
         <table class="table table-report sm:mt-2">
             <thead>
                 <tr>
@@ -113,7 +113,7 @@ Sell Report List
             </tbody>
         </table>
         <div class="mt-3">
-            
+
         </div>
     </div>
 </div>

@@ -108,4 +108,60 @@ class ProfileController extends Controller
         return view('pages.customer.changepass');
     }
 
+
+    //FOR TECHNICIAN CHANGE PASSWORD
+    public function tech_showChangePassword(){
+        return view('pages.technician.changepass');
+    }
+
+    public function tech_updatePassword(Request $request){
+
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required',
+        ]);
+
+        if(!Hash::check($request->old_password, auth()->user()->password)){
+            return back()->with("error", "Old Password Doesn't match!");
+        }
+
+        if($request->new_password != $request->new_password_confirmation){
+            return back()->with("error", "Confirmation Password Doesn't match!");
+        }
+
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return back()->with("success", "Password changed successfully!");
+    }
+
+     //FOR STAFF CHANGE PASSWORD
+     public function staff_showChangePassword(){
+        return view('pages.staff.changepass');
+    }
+
+    public function staff_updatePassword(Request $request){
+
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required',
+        ]);
+
+        if(!Hash::check($request->old_password, auth()->user()->password)){
+            return back()->with("error", "Old Password Doesn't match!");
+        }
+
+        if($request->new_password != $request->new_password_confirmation){
+            return back()->with("error", "Confirmation Password Doesn't match!");
+        }
+
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return back()->with("success", "Password changed successfully!");
+    }
+
+
 }

@@ -32,7 +32,9 @@ Route::get('/account', [SearchAccountController::class, 'search'])->name('accoun
 // Route::get('/customer/assets/{id}',[TestController::class, 'Customer_AssetList'])->name('Customer_AssetList');
 
 
-
+// Route::get('linkstorage',function() {
+//     Artisan::call('storage:link');
+// });
 
 
 
@@ -83,14 +85,24 @@ Route::middleware([
         Route::post('/store','store')->name('store');
         Route::put('/update','update')->name('update');
         Route::delete('/delete','destroy')->name('delete');
+
     });
     Route::controller(ProfileController::class)
     ->as('profile.')
     ->prefix('profile')
     ->group(function(){
+
         Route::put('/update-profile','updateProfile')->name('updateProfile');
-        Route::get('/chanage-password','showChangePassword')->name('show_changepw');
-        Route::put('/chanage-password','updatePassword')->name('updatePassword');
+        Route::get('/change-password','showChangePassword')->name('show_changepw');
+        Route::put('/change-password','updatePassword')->name('updatePassword');
+
+        Route::get('/technician-change-password','tech_showChangePassword')->name('tech_show_changepw');
+        Route::put('/technician-change-password','tech_updatePassword')->name('tech_updatePassword');
+
+        Route::get('/staff-change-password','staff_showChangePassword')->name('staff_show_changepw');
+        Route::put('/staff-change-password','staff_updatePassword')->name('staff_updatePassword');
+
+
     });
     Route::controller(ServiceController::class)
     ->as('service.')
