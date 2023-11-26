@@ -93,6 +93,7 @@ Summary Report
                     <th class="bg-theme-1 text-xs text-white" id="header">Request Number</th>
                     <th class="bg-theme-1 text-xs text-white" id="header">Requested Service</th>
                     <th class="bg-theme-1 text-xs text-white" id="header">Date</th>
+                    <th class="bg-theme-1 text-xs text-white" id="header">Status</th>
                     <th class="bg-theme-1 text-xs text-white" id="header">Total Amount</th>
                     <th class="bg-theme-1 text-xs text-white action hidden" style="border-top-right-radius: 20px;">Action</th>
                 </tr>
@@ -134,6 +135,23 @@ Summary Report
                         <div class="flex">
                             <?php echo e(Carbon\Carbon::parse($data->created_at)->format('M d, Y') ?? 'N/A'); ?>
 
+                        </div>
+                    </td>
+                    <td class="w-10">
+                        <div class="flex">
+                            <?php if(isset($data->status)): ?>
+                                <?php if($data->status == 'Pending'): ?>
+                                <span class="text-red-700"><?php echo e($data->status ?? 'N/A'); ?></span>
+                                <?php elseif($data->status == 'Inprocess'): ?>
+                                <span class="text-blue-700"><?php echo e($data->status ?? 'N/A'); ?></span>
+                                <?php elseif($data->status == 'Completed'): ?>
+                                <span class="text-green-700"><?php echo e($data->status ?? 'N/A'); ?></span>
+                                <?php else: ?>
+                                <span class="text-gray-700"><?php echo e('Cancelled'); ?></span>
+                                <?php endif; ?>
+                            <?php else: ?>
+                                <span>N/A</span>
+                            <?php endif; ?>
                         </div>
                     </td>
                     <td class="w-40">

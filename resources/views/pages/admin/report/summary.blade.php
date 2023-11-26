@@ -129,6 +129,7 @@ Summary Report
                     <th class="bg-theme-1 text-xs text-white" id="header">Request Number</th>
                     <th class="bg-theme-1 text-xs text-white" id="header">Requested Service</th>
                     <th class="bg-theme-1 text-xs text-white" id="header">Date</th>
+                    <th class="bg-theme-1 text-xs text-white" id="header">Status</th>
                     <th class="bg-theme-1 text-xs text-white" id="header">Total Amount</th>
                     <th class="bg-theme-1 text-xs text-white action hidden" style="border-top-right-radius: 20px;">Action</th>
                 </tr>
@@ -166,6 +167,23 @@ Summary Report
                     <td class="w-40">
                         <div class="flex">
                             {{Carbon\Carbon::parse($data->created_at)->format('M d, Y') ?? 'N/A'}}
+                        </div>
+                    </td>
+                    <td class="w-10">
+                        <div class="flex">
+                            @if(isset($data->status))
+                                @if($data->status == 'Pending')
+                                <span class="text-red-700">{{$data->status ?? 'N/A'}}</span>
+                                @elseif($data->status == 'Inprocess')
+                                <span class="text-blue-700">{{$data->status ?? 'N/A'}}</span>
+                                @elseif($data->status == 'Completed')
+                                <span class="text-green-700">{{$data->status ?? 'N/A'}}</span>
+                                @else
+                                <span class="text-gray-700">{{'Cancelled'}}</span>
+                                @endif
+                            @else
+                                <span>N/A</span>
+                            @endif
                         </div>
                     </td>
                     <td class="w-40">
